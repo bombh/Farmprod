@@ -1,0 +1,33 @@
+npx create-expo-app@latest
+
+npx expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar
+
+// Add in package.json expo-router main file
+{
+  "main": "expo-router/entry"
+}
+
+// Add in app.json scheme path
+{
+  "scheme": "your-app-scheme"
+}
+
+// Install web
+npx expo install react-native-web react-dom
+
+// Add in app.json
+{
+  "web": {
+    "bundler": "metro"
+  }
+}
+
+// babel.config.js
+module.exports = function (api) {
+  api.cache(true);
+  return {
+    presets: ['babel-preset-expo'],
+  };
+};
+
+

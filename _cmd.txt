@@ -30,4 +30,17 @@ module.exports = function (api) {
   };
 };
 
+// Add nativewind
+npm install nativewind
+npm install --save-dev tailwindcss@3.3.2
+
+// Init tailwindcss
+npx tailwindcss init
+
+// Add in tailwind.config.js
+content: ["./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js,jsx,ts,tsx}"],
+
+// Add in babel.config.js
+plugins: ["nativewind/babel"],
+
 

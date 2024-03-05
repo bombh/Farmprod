@@ -43,4 +43,6 @@ content: ["./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js
 // Add in babel.config.js
 plugins: ["nativewind/babel"],
 
+npx expo install expo-splash-screen
+
 

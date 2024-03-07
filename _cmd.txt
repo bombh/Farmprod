@@ -44,5 +44,7 @@ content: ["./App.{js,jsx,ts,tsx}", "./app/**/*.{js,jsx,ts,tsx}", "./src/**/*.{js
 plugins: ["nativewind/babel"],
 
 npx expo install expo-splash-screen
-
-
+npx expo install expo-status-bar
+npx expo install react-native-safe-area-context
+npm install axios
+npm install -D react-native-dotenv

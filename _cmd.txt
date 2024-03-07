@@ -12,7 +12,7 @@ npx expo install expo-router react-native-safe-area-context react-native-screens
   "scheme": "your-app-scheme"
 }
 
-// Install web
+// Install web (needs to configure nativewind for webpack )
 npx expo install react-native-web react-dom
 
 // Add in app.json

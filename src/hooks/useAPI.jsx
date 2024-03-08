@@ -6,14 +6,14 @@ const baseUrl = 'https://www.farmprod.be/ghost/api/content/'
 const key = API_KEY
 
 const useAPI = (method, endpoint, query) => {
-   const [data, setData] = useState([]);
+   const [data, setData] = useState([])
    const [isLoading, setIsLoading] = useState(false)
    const [error, setError] = useState(null)
 
    const options = {
       method: method,
-      url: `${baseUrl}${endpoint}/?key=${key}}`,
-      params: { ...query }
+      url: `${baseUrl}${endpoint}/?key=${key}&${query ? query : ''}`,
+      
    }
 
    const fetchData = async () => {
@@ -21,7 +21,7 @@ const useAPI = (method, endpoint, query) => {
       setError(null)
 
       try{
-         console.log('options: ', options.url)
+         console.log('options: ', options)
          const result = await axios.request(options);
          setData(result)
          console.log(result)
@@ -43,6 +43,8 @@ const useAPI = (method, endpoint, query) => {
       setIsLoading(true);
       fetchData();
    }
+
+   return { data, isLoading, error, refetch }
 }
 
 export default useAPI

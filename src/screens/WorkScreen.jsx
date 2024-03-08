@@ -6,11 +6,31 @@ import useAPI from "../hooks/useAPI";
 
 const logo = require('@/assets/icon.png');
 
+const ShowCard = (item) => {
+   return (
+      <View className="pb-8">
+         <View className="flex-row">
+            <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
+         </View>
+         <View className="bg-black p-1">
+            <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
+         </View>
+         <View>
+            <Text className="text-neutral-400 text-lg leading-5 text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
+         </View>
+         <View className="border border-neutral-300 border-x-0 border-y-1">
+            <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
+         </View>
+         
+      </View>
+   )
+}
+
 export default function WorkScreen() {
    const router = useRouter();
    const insets = useSafeAreaInsets();
 
-   d = useAPI('GET', 'posts', 'limit=100');
+   const { data, isLoading, error } = useAPI('GET', 'posts', 'limit=100');
 
    return (
       <View className="flex-1 px-3 pt-3 pb-1 bg-white" style={{ paddingBottom: insets.bottom,
@@ -23,101 +43,14 @@ export default function WorkScreen() {
             <View className="mb-2">
                <Text className="text-black text-center font-extralight text-6xl p-2">work</Text>
             </View>
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
 
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
-
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
-
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
-
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
-
-            <View className="pb-8">
-               <View className="flex-row">
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
-               </View>
-               <View className="bg-black p-1">
-                  <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
-               </View>
-               <View>
-                  <Text className="text-neutral-400 text-lg text-center py-2">Mural for the exhibition in the age of Bruegel</Text>
-               </View>
-               <View className="border border-neutral-300 border-x-0 border-y-1 ">
-                  <Text className="text-xs uppercase text-center py-2">Murals • Brussels (BE) • 2019</Text>
-               </View>
-               
-            </View>
+            <ShowCard />
+            <ShowCard />
+            <ShowCard />
+            <ShowCard />
+            <ShowCard />
+            <ShowCard />
+            <ShowCard />
                
          </ScrollView>
       </View>

@@ -1,0 +1,7 @@
+{
+    "codemetrics.basics.CodeLensEnabled": false,
+    "codemetrics.basics.DecorationModeEnabled": false,
+    "codemetrics.basics.EnabledForJS": false,
+    "codemetrics.basics.EnabledForHTML": false,
+    "editor.colorDecorators": false
+}

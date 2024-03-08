@@ -13,7 +13,9 @@ const useAPI = (method, endpoint, query) => {
    const options = {
       method: method,
       url: `${baseUrl}${endpoint}/?key=${key}&${query ? query : ''}`,
-      
+      headers: {
+         'Content-Type': 'application/json'
+      }
    }
 
    const fetchData = async () => {
@@ -21,13 +23,12 @@ const useAPI = (method, endpoint, query) => {
       setError(null)
 
       try{
-         console.log('options: ', options)
          const result = await axios.request(options);
-         setData(result)
-         console.log(result)
+         setData(result.data)
+         //console.log(result)
 
       } catch (error) {
-         console.log(error)
+         //console.log(error)
          alert('Error fetching data, please try again later...')
 
       } finally {
@@ -40,7 +41,7 @@ const useAPI = (method, endpoint, query) => {
    }, []);
 
    const refetch = () => {
-      setIsLoading(true);
+      //setIsLoading(true);
       fetchData();
    }
 

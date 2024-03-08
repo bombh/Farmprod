@@ -1,5 +1,5 @@
 import { View, Text, Image, Pressable } from 'react-native'
-import React from 'react'
+import React, { memo } from 'react'
 
 const WorksCard = ( props ) => {
 
@@ -34,4 +34,4 @@ const WorksCard = ( props ) => {
    )
 }
 
-export default WorksCard
+export default memo(WorksCard)

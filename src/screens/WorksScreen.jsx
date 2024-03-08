@@ -1,6 +1,6 @@
 import { ScrollView, View, FlatList, ActivityIndicator } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+//import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI";
 import ScreenTitle from "@/src/components/common/ScreenTitle";
@@ -10,25 +10,23 @@ import WorksCard from "@/src/components/works/WorksCard";
 
 export default function WorksScreen() {
    const router = useRouter();
-   const insets = useSafeAreaInsets();
-
+   
    const { data, isLoading, error } = useAPI('GET', 'posts', 'limit=100&include=tags');
 
    return (
-      <View className="flex-1 px-3 pt-3 pb-1 bg-white" style={{ paddingBottom: insets.bottom,
-         paddingTop: insets.top}}>
+      <View className="flex-1 px-3 bg-white">
 
          { isLoading ? (
                <>
                   <ScreenTitle title="Work" />
-                  <ActivityIndicator className="pt-10" size="large" color="#000000" />
+                  <ActivityIndicator className="pt-16" size="large" color="#000000" />
                </>
             ) : (
                <FlatList
                   data={data.posts}
                   renderItem={ ({ item }) => <WorksCard {...item} />}
                   keyExtractor={ item => item.id }
-                  className=""
+                  initialNumToRender={5}
                   ListHeaderComponent={ <ScreenTitle title="Work" />}
                />
             )

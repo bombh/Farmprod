@@ -8,7 +8,7 @@ import WorksCard from "@/src/components/works/WorksCard";
 
 // const logo = require('@/assets/icon.png');
 
-export default function WorkScreen() {
+export default function WorksScreen() {
    const router = useRouter();
    const insets = useSafeAreaInsets();
 
@@ -18,29 +18,22 @@ export default function WorkScreen() {
       <View className="flex-1 px-3 pt-3 pb-1 bg-white" style={{ paddingBottom: insets.bottom,
          paddingTop: insets.top}}>
 
-         <ScreenTitle title="Work" />
-
          { isLoading ? (
-               <ActivityIndicator className="pt-10" size="large" color="#000000" />
+               <>
+                  <ScreenTitle title="Work" />
+                  <ActivityIndicator className="pt-10" size="large" color="#000000" />
+               </>
             ) : (
                <FlatList
                   data={data.posts}
                   renderItem={ ({ item }) => <WorksCard {...item} />}
                   keyExtractor={ item => item.id }
+                  className=""
+                  ListHeaderComponent={ <ScreenTitle title="Work" />}
                />
-               
             )
-
          }
          
-         {/* <ScrollView className="flex-1">
-            <ScreenTitle title="Work" />
-
-            <WorksCard />
-            <WorksCard />
-            <WorksCard />
-               
-         </ScrollView> */}
       </View>
    );
 }

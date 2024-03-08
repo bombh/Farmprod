@@ -8,7 +8,7 @@ import WorksCard from "@/src/components/works/WorksCard";
 
 // const logo = require('@/assets/icon.png');
 
-export default function WorksScreen() {
+export default function Screen() {
    const router = useRouter();
    
    const { data, isLoading, error } = useAPI('GET', 'posts', 'limit=100&include=tags');
@@ -18,7 +18,7 @@ export default function WorksScreen() {
 
          { isLoading ? (
                <>
-                  <ScreenTitle title="Work" />
+                  <ScreenTitle title="Works" />
                   <ActivityIndicator className="pt-16" size="large" color="#000000" />
                </>
             ) : (
@@ -27,7 +27,7 @@ export default function WorksScreen() {
                   renderItem={ ({ item }) => <WorksCard {...item} />}
                   keyExtractor={ item => item.id }
                   initialNumToRender={5}
-                  ListHeaderComponent={ <ScreenTitle title="Work" />}
+                  ListHeaderComponent={ <ScreenTitle title="Works" />}
                />
             )
          }

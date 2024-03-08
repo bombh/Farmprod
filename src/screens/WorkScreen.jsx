@@ -6,7 +6,7 @@ import useAPI from "@/src/hooks/useAPI";
 import ScreenTitle from "@/src/components/common/ScreenTitle";
 import WorksCard from "@/src/components/works/WorksCard";
 
-const logo = require('@/assets/icon.png');
+// const logo = require('@/assets/icon.png');
 
 export default function WorkScreen() {
    const router = useRouter();

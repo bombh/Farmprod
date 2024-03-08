@@ -12,7 +12,7 @@ export default AppDrawerContent = ( props ) => {
    <>
       <DrawerContentScrollView {...props}>
 
-         <View className='flex-row items-center justify-center pt-5 pb-6'>
+         <View className='flex-row items-center justify-center pt-5 pb-6 pr-1'>
             <Image
                source={logo}
                className='w-32 h-32'
@@ -20,7 +20,7 @@ export default AppDrawerContent = ( props ) => {
          </View>
 
          <DrawerItemList {...props} />
-                  
+
       </DrawerContentScrollView>
 
       <View className="pb-3">

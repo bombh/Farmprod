@@ -5,13 +5,14 @@ import AppDrawerContent from '@/src/components/common/AppDrawerContent';
 import { styled } from 'nativewind';
 
 const AppDrawer = () => {
-   const StyledIcons = styled(FontAwesome6)
+   const Icons = styled(FontAwesome6)
    return (
    <Drawer
-   drawerContent={ props => <AppDrawerContent {...props} /> }
+      drawerContent={ props => <AppDrawerContent {...props} /> }
       screenOptions={{
          headerShown: true,
-         drawerType: 'slide', 
+         drawerType: 'slide',
+         headerTintColor: colors.black,
          headerTitleAlign: 'center',
          headerShadowVisible: false,
          drawerStyle : {
@@ -34,7 +35,7 @@ const AppDrawer = () => {
             title: 'Farmprod',
             //headerShown: false,
             drawerIcon: ({ color }) => (
-               <StyledIcons name="spray-can-sparkles" size={24} color={color} className="absolute right-3" />
+               <Icons name="spray-can-sparkles" size={24} color={color} className="absolute right-3" />
             )
          }}
       />
@@ -45,7 +46,7 @@ const AppDrawer = () => {
             drawerLabel: 'Artists',
             title: 'Farmprod',
             drawerIcon: ({ color }) => (
-               <StyledIcons name="people-group" size={24} color={color} className="absolute right-3" />
+               <Icons name="people-group" size={24} color={color} className="absolute right-3" />
             )
          }}
       />
@@ -55,7 +56,7 @@ const AppDrawer = () => {
             drawerLabel: 'Tours',
             title: 'Farmprod',
             drawerIcon: ({ color }) => (
-               <StyledIcons name="person-walking" size={24} color={color} className="absolute right-5" />
+               <Icons name="person-walking" size={24} color={color} className="absolute right-5" />
             )
          }}
       />
@@ -65,7 +66,7 @@ const AppDrawer = () => {
             drawerLabel: 'About',
             title: 'Farmprod',
             drawerIcon: ({ color }) => (
-               <StyledIcons name="circle-info" size={24} color={color} className="absolute right-4" />
+               <Icons name="circle-info" size={24} color={color} className="absolute right-4" />
             )
          }}
       />

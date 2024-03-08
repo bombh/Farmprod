@@ -25,7 +25,7 @@ const useAPI = (method, endpoint, query) => {
       try{
          const result = await axios.request(options);
          setData(result.data)
-         // console.log(result.data)
+         //console.log(result.data)
 
       } catch (error) {
          //console.log(error)

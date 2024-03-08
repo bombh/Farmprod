@@ -3,6 +3,9 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import colors from 'tailwindcss/colors';
 import AppDrawerContent from '@/src/components/app/AppDrawerContent';
 import { styled } from 'nativewind';
+import { Image } from 'react-native';
+
+const logo = require('@/src/assets/images/logo_128.png');
 
 const AppDrawer = () => {
    const Icons = styled(FontAwesome6)
@@ -15,6 +18,10 @@ const AppDrawer = () => {
          headerTintColor: colors.black,
          headerTitleAlign: 'center',
          headerShadowVisible: false,
+         headerRight: () => (
+            <Image source={logo} className="w-9 h-9 mt-1 mr-4"  />
+          ),
+
          drawerStyle : {
             width: 220,
             backgroundColor: colors.neutral[900],
@@ -32,7 +39,7 @@ const AppDrawer = () => {
          name="index" // This is the name of the page and must match the url from root
          options={{
             drawerLabel: 'Works',
-            title: 'Farmprod',
+            title: '',
             //headerShown: false,
             drawerIcon: ({ color }) => (
                <Icons name="spray-can-sparkles" size={24} color={color} className="absolute right-3" />
@@ -44,7 +51,7 @@ const AppDrawer = () => {
          name="artists/index" // This is the name of the page and must match the url from root
          options={{
             drawerLabel: 'Artists',
-            title: 'Farmprod',
+            title: '',
             drawerIcon: ({ color }) => (
                <Icons name="people-group" size={24} color={color} className="absolute right-3" />
             )
@@ -54,7 +61,7 @@ const AppDrawer = () => {
          name="tours/index" // This is the name of the page and must match the url from root
          options={{
             drawerLabel: 'Tours',
-            title: 'Farmprod',
+            title: '',
             drawerIcon: ({ color }) => (
                <Icons name="person-walking" size={24} color={color} className="absolute right-5" />
             )
@@ -64,7 +71,7 @@ const AppDrawer = () => {
          name="about/index" // This is the name of the page and must match the url from root
          options={{
             drawerLabel: 'About',
-            title: 'Farmprod',
+            title: '',
             drawerIcon: ({ color }) => (
                <Icons name="circle-info" size={24} color={color} className="absolute right-4" />
             )

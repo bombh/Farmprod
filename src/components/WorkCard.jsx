@@ -1,5 +1,8 @@
-import { View, Text, Image, Pressable } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
+import { Image } from 'expo-image'
 import React, { memo } from 'react'
+
+const placeholder = require('@/src/assets/images/placeholder.png')
 
 const WorksCard = ( props ) => {
 
@@ -11,7 +14,13 @@ const WorksCard = ( props ) => {
    return (
       <Pressable className="mb-7 active:opacity-70">
          <View className="flex-row">
-            <Image source={{ uri: img }} className="w-full h-44" />
+            <Image
+               source={{ uri: img }}
+               className="w-full h-44"
+               placeholder={placeholder}
+               placeholderContentFit='cover'
+               transition={500}
+            />
          </View>
          <View className="bg-black p-1">
             <Text numberOfLines={1} className="text-white font-semibold text-lg text-center">

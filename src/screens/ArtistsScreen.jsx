@@ -3,7 +3,7 @@ import { useNavigation, useRouter } from "expo-router";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI";
-import ScreenTitle from "@/src/components/common/ScreenTitle";
+import ScreenTitle from "@/src/components/app/ScreenTitle";
 import ArtistCard from "@/src/components/ArtistCard";
 
 // const logo = require('@/assets/icon.png');

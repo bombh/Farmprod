@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native'
 import useAPI from "@/src/hooks/useAPI";
-import ScreenTitle from "@/src/components/common/ScreenTitle";
+import ScreenTitle from "@/src/components/app/ScreenTitle";
 
 export default Screen = () => {
   return (

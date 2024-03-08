@@ -1,6 +1,6 @@
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import AppDrawer from '@/src/components/common/AppDrawer';
+import AppDrawer from '@/src/components/app/AppDrawer';
 
 // For web exports
 //import { NativeWindStyleSheet } from "nativewind";

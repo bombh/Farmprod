@@ -3,8 +3,8 @@ import { useNavigation, useRouter } from "expo-router";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI";
-import ScreenTitle from "@/src/components/common/ScreenTitle";
-import WorksCard from "@/src/components/works/WorksCard";
+import ScreenTitle from "@/src/components/app/ScreenTitle";
+import WorkCard from "@/src/components/WorkCard";
 
 // const logo = require('@/assets/icon.png');
 
@@ -24,7 +24,7 @@ export default function Screen() {
             ) : (
                <FlatList
                   data={data.posts}
-                  renderItem={ ({ item }) => <WorksCard {...item} />}
+                  renderItem={ ({ item }) => <WorkCard {...item} />}
                   keyExtractor={ item => item.id }
                   initialNumToRender={5}
                   ListHeaderComponent={ <ScreenTitle title="Works" />}

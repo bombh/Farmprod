@@ -19,7 +19,7 @@ const AppDrawer = () => {
          headerTitleAlign: 'center',
          headerShadowVisible: false,
          headerRight: () => (
-            <Image source={logo} className="w-9 h-9 mt-1 mr-4"  />
+            <Image source={logo} className="w-7 h-7 mt-1 mr-4"  />
           ),
 
          drawerStyle : {
@@ -42,7 +42,7 @@ const AppDrawer = () => {
             title: '',
             //headerShown: false,
             drawerIcon: ({ color }) => (
-               <Icons name="spray-can-sparkles" size={24} color={color} className="absolute right-3" />
+               <Icons name="spray-can" size={24} color={color} className="absolute right-3" />
             )
          }}
       />

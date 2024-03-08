@@ -8,12 +8,12 @@ const logo = require('@/assets/icon.png');
 
 const ShowCard = (item) => {
    return (
-      <View className="pb-8">
+      <View className="pb-7">
          <View className="flex-row">
             <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/3O6A7088-1.jpg' }} className="w-full h-44" />
          </View>
          <View className="bg-black p-1">
-            <Text numberOfLines={1} className="text-white font-semibold text-xl text-center">Lorem ipsum dolor</Text>
+            <Text numberOfLines={1} className="text-white font-semibold text-lg text-center">Lorem ipsum dolor</Text>
          </View>
          <View>
             <Text className="text-neutral-400 text-lg leading-5 text-center py-2">Mural for the exhibition in the age of Bruegel</Text>

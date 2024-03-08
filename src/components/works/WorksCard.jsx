@@ -1,13 +1,15 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, Pressable } from 'react-native'
 import React from 'react'
 
-const WorksCard = ( { title, excerpt, feature_image, tags } ) => {
+const WorksCard = ( props ) => {
+
+   const { title, excerpt, feature_image, tags } = props
 
    const img = feature_image.replace("/images/", "/images/size/w600/")   
    const tagText = tags.slice(1).map( tag => tag.name ).join(' • ')
 
    return (
-      <View className="pb-7">
+      <Pressable className="mb-7 active:opacity-70">
          <View className="flex-row">
             <Image source={{ uri: img }} className="w-full h-44" />
          </View>
@@ -28,7 +30,7 @@ const WorksCard = ( { title, excerpt, feature_image, tags } ) => {
             </Text>
          </View>
          
-      </View>
+      </Pressable>
    )
 }
 

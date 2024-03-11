@@ -11,6 +11,21 @@ export default Screen = () => {
    const { data, isLoading, error } = useAPI('GET', 'pages/slug/about', '');
    const { width } = useWindowDimensions();
 
+   const mixedStyle = {
+      body: {
+        
+      },
+      h2: {
+         fontSize: '24px',
+         fontWeight: 'bold',
+         color: '#000'
+      },
+      p: {
+        fontSize: '18px',
+        lineHeight: '28px',
+      }
+    }
+
    return (
       <ScrollView className="flex-1 bg-white">
          <ScreenTitle title="About" />
@@ -22,7 +37,11 @@ export default Screen = () => {
                <>
                   <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/bandeFP-1.jpg' }} className="w-full h-36" />
                   <View className="p-3 pb-6">
-                     <RenderHtml contentWidth={width} source={{html: data.pages[0].html}} />
+                     <RenderHtml
+                        contentWidth={width}
+                        source={{html: data.pages[0].html}}
+                        tagsStyles={mixedStyle} 
+                     />
                   </View>
                </>
             )

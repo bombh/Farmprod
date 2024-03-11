@@ -1,14 +1,16 @@
-import { View, Text, Pressable } from 'react-native'
-import { Image } from 'expo-image'
-import React, { memo } from 'react'
+import { View, Text, Pressable, Image } from 'react-native'
+import { useCallback } from 'react'
+//import { Image } from 'expo-image'
+import { memo } from 'react'
 
 const placeholder = require('@/src/assets/images/placeholder.png')
 
-const WorksCard = ( props ) => {
-
+const WorkCard = ( props ) => {
+   
    const { title, excerpt, feature_image, tags } = props
+   console.log('Rendering Card', title)
 
-   const img = feature_image.replace("/images/", "/images/size/w600/")   
+   const img = feature_image.replace("/images/", "/images/size/w300/")   
    const tagText = tags.slice(1).map( tag => tag.name ).join(' • ')
 
    return (
@@ -17,9 +19,8 @@ const WorksCard = ( props ) => {
             <Image
                source={{ uri: img }}
                className="w-full h-44"
-               placeholder={placeholder}
-               placeholderContentFit='cover'
-               transition={500}
+               defaultSource={placeholder}
+               resizeMode='cover'
             />
          </View>
          <View className="bg-black p-1">
@@ -35,7 +36,6 @@ const WorksCard = ( props ) => {
          <View className="border border-neutral-300 border-x-0 border-y-1">
             <Text className="text-xs uppercase text-center py-2">
                {tagText}
-               {/* Murals • Brussels (BE) • 2019 */}
             </Text>
          </View>
          
@@ -43,4 +43,4 @@ const WorksCard = ( props ) => {
    )
 }
 
-export default memo(WorksCard)
+export default memo(WorkCard)

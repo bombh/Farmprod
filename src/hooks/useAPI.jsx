@@ -40,12 +40,12 @@ const useAPI = (method, endpoint, query) => {
       fetchData();
    }, []);
 
-   const refetch = () => {
-      //setIsLoading(true);
-      fetchData();
-   }
+   // const refetch = () => {
+   //    //setIsLoading(true);
+   //    fetchData();
+   // }
 
-   return { data, isLoading, error, refetch }
+   return { data, isLoading, error }
 }
 
 export default useAPI

@@ -1,3 +1,4 @@
+import React, { useCallback } from "react";
 import { ScrollView, View, FlatList, ActivityIndicator } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -13,6 +14,10 @@ export default function Screen() {
 
    const { data, isLoading, error } = useAPI('GET', 'authors', 'limit=100');
 
+   const renderItem = useCallback(({item}) => (
+      <ArtistCard {...item} />
+    ), []);
+
    return (
       <View className="flex-1 px-3 bg-white">
 
@@ -24,10 +29,11 @@ export default function Screen() {
             ) : (
                <FlatList
                   data={data.authors}
-                  renderItem={ ({ item }) => <ArtistCard {...item} />}
+                  renderItem={renderItem}
                   keyExtractor={ item => item.id }
                   initialNumToRender={5}
                   ListHeaderComponent={ <ScreenTitle title="Artists" />}
+                  scrollEventThrottle={16}
                />
             )
          }

@@ -17,7 +17,7 @@ export default function Screen() {
 
    const renderItem = useCallback(({item}) => (
       <WorkCard {...item} />
-    ), []);
+    ), [data]);
 
    return (
       <View className="flex-1 px-3 bg-white">

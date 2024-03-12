@@ -43,4 +43,4 @@ const WorkCard = ( props ) => {
    )
 }
 
-export default memo(WorkCard)
+export default memo(WorkCard, (prevProps, nextProps) => (prevProps.id === nextProps.id))

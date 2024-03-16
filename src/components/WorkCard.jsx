@@ -18,7 +18,7 @@ const WorkCard = ( props ) => {
          <View className="flex-row">
             <Image
                source={{ uri: img }}
-               className="w-full h-44"
+               className="w-full h-32"
                defaultSource={placeholder}
                resizeMode='cover'
             />

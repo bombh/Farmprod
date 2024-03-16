@@ -16,6 +16,7 @@ export default function Screen() {
    
    const { data, isLoading, error } = useAPI('GET', 'posts', 'limit=100&include=tags');
 
+   // Not used as WorkCard is memoized
    const renderItem = useCallback(({item}) => (
       <WorkCard {...item} />
     ), [data]);
@@ -31,12 +32,11 @@ export default function Screen() {
             ) : (
                <FlatList
                   data={data.posts}
-                  renderItem={renderItem}
+                  renderItem={ ({item}) => <WorkCard {...item} /> }
                   keyExtractor={ item => item.id }
                   initialNumToRender={5}
                   maxToRenderPerBatch={5}
                   ListHeaderComponent={ <ScreenTitle title="Works" />}
-                  //windowSize={7}
                   scrollEventThrottle={16}
                />
             )

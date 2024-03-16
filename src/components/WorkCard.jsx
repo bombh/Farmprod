@@ -1,7 +1,7 @@
 import { View, Text, Pressable, Image } from 'react-native'
 import { useCallback } from 'react'
 //import { Image } from 'expo-image'
-import { memo } from 'react'
+//import { memo } from 'react'
 
 const placeholder = require('@/src/assets/images/placeholder.png')
 
@@ -43,4 +43,5 @@ const WorkCard = ( props ) => {
    )
 }
 
-export default memo(WorkCard, (prevProps, nextProps) => (prevProps.id === nextProps.id))
+export default WorkCard
+//export default memo(WorkCard, (prevProps, nextProps) => (prevProps.id === nextProps.id))

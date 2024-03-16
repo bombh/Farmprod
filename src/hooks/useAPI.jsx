@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { API_KEY } from "@env";
+//import { API_KEY } from "@env";
 
 const baseUrl = 'https://www.farmprod.be/ghost/api/content/'
-const key = API_KEY
+const key = process.env.EXPO_PUBLIC_API_KEY
 
 const useAPI = (method, endpoint, query) => {
    const [data, setData] = useState([])

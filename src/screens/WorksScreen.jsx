@@ -1,6 +1,7 @@
 import { ScrollView, View, FlatList, ActivityIndicator } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
 import { useCallback } from "react";
+//import { FlashList } from "@shopify/flash-list";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI";
@@ -33,6 +34,7 @@ export default function Screen() {
                   renderItem={renderItem}
                   keyExtractor={ item => item.id }
                   initialNumToRender={5}
+                  maxToRenderPerBatch={5}
                   ListHeaderComponent={ <ScreenTitle title="Works" />}
                   //windowSize={7}
                   scrollEventThrottle={16}

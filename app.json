@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Farmprod",
-    "slug": "Farmprod",
+    "slug": "farmprod",
     "scheme": "farmprod",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -16,7 +16,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.farmprod.app"
     },
     "android": {
       "adaptiveIcon": {
@@ -30,6 +31,15 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "38db8f38-98ab-4fd7-ae03-527d72514389"
+      }
+    },
+    "owner": "bombh"
   }
 }

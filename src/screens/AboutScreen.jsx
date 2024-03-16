@@ -6,7 +6,7 @@ import { Image } from 'expo-image'
 import useAPI from "@/src/hooks/useAPI";
 import ScreenTitle from "@/src/components/app/ScreenTitle";
 
-export default Screen = () => {
+export default function Screen() {
 
    const { data, isLoading, error } = useAPI('GET', 'pages/slug/about', '');
    const { width } = useWindowDimensions();

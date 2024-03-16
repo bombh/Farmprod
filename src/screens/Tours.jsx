@@ -3,7 +3,7 @@ import { Image } from 'expo-image'
 
 import ScreenTitle from "@/src/components/app/ScreenTitle";
 
-export default Screen = () => {
+export default function Screen() {
 
    return (
 

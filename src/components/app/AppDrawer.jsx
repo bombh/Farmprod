@@ -36,11 +36,10 @@ const AppDrawer = () => {
       }}
    >
       <Drawer.Screen
-         name="index" // This is the name of the page and must match the url from root
+         name="index"
          options={{
             drawerLabel: 'Works',
             title: '',
-            //headerShown: false,
             drawerIcon: ({ color }) => (
                <Icons name="spray-can" size={24} color={color} className="absolute right-3" />
             )
@@ -48,7 +47,7 @@ const AppDrawer = () => {
       />
 
       <Drawer.Screen
-         name="artists/index" // This is the name of the page and must match the url from root
+         name="artists/index"
          options={{
             drawerLabel: 'Artists',
             title: '',
@@ -58,7 +57,7 @@ const AppDrawer = () => {
          }}
       />
       <Drawer.Screen
-         name="tours/index" // This is the name of the page and must match the url from root
+         name="tours/index"
          options={{
             drawerLabel: 'Tours',
             title: '',
@@ -68,7 +67,7 @@ const AppDrawer = () => {
          }}
       />
       <Drawer.Screen
-         name="about/index" // This is the name of the page and must match the url from root
+         name="about/index"
          options={{
             drawerLabel: 'About',
             title: '',

@@ -24,9 +24,6 @@
       "distribution": "internal",
       "env": {
          "EXPO_PUBLIC_API_KEY": "fd7713115a89c0789d3753d616"
-       },
-       "ios": {
-         "simulator": true
        }
     },
     "production": {

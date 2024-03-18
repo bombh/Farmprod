@@ -6,6 +6,8 @@ import { Image } from 'expo-image'
 import useAPI from "@/src/hooks/useAPI";
 import ScreenTitle from "@/src/components/app/ScreenTitle";
 
+const placeholder = require('@/src/assets/images/placeholder.png')
+
 export default function Screen() {
 
    const { data, isLoading, error } = useAPI('GET', 'pages/slug/about', '');
@@ -35,7 +37,14 @@ export default function Screen() {
             ) : (
                data.pages && 
                <>
-                  <Image source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/bandeFP-1.jpg' }} className="w-full h-36" />
+                  <Image
+                     source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/bandeFP-1.jpg' }}
+                     className="w-full h-36"
+                     placeholder={placeholder}
+                     placeholderContentFit='cover'
+                     transition={500}
+                  />
+
                   <View className="p-3 pb-6">
                      <RenderHtml
                         contentWidth={width}

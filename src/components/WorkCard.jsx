@@ -8,7 +8,7 @@ const placeholder = require('@/src/assets/images/placeholder.png')
 const WorkCard = ( props ) => {
    
    const { title, excerpt, feature_image, tags } = props
-   console.log('Rendering Card', title)
+   //console.log('Rendering Card', title)
 
    const img = feature_image.replace("/images/", "/images/size/w300/")   
    const tagText = tags.slice(1).map( tag => tag.name ).join(' • ')
@@ -30,12 +30,12 @@ const WorkCard = ( props ) => {
             </Text>
          </View>
          <View>
-            <Text className="text-neutral-400 text-lg leading-5 text-center py-2">
+            <Text numberOfLines={1} className="text-neutral-400 text-lg leading-5 text-center py-2">
                {excerpt}
             </Text>
          </View>
          <View className="border border-neutral-300 border-x-0 border-y-1">
-            <Text className="text-xs uppercase text-center py-2">
+            <Text numberOfLines={1} className="text-xs uppercase text-center py-2">
                {tagText}
             </Text>
          </View>

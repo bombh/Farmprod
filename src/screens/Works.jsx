@@ -28,7 +28,7 @@ export default function Screen() {
                   data={data.posts}
                   renderItem={ ({item}) => <WorkCard {...item} /> }
                   keyExtractor={ item => item.id }
-                  estimatedItemSize={257}
+                  estimatedItemSize={262}
                   // initialNumToRender={5}
                   // maxToRenderPerBatch={5}
                   ListHeaderComponent={ <ScreenTitle title="Works" />}

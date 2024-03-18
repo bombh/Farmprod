@@ -14,8 +14,6 @@ export default function HeaderDrawer() {
       <Stack screenOptions={
          {
             headerShown: true,
-            headerBackVisible: true,
-            headerBackTitleVisible: false,
             headerTitle: '',
             headerShadowVisible: false,
             headerRight: () => (

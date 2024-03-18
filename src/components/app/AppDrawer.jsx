@@ -7,8 +7,10 @@ import { Image } from 'react-native';
 
 const logo = require('@/src/assets/images/logo_128.png');
 
-const AppDrawer = () => {
+export default function AppDrawer() {
+
    const Icons = styled(FontAwesome6)
+   
    return (
    <Drawer
       drawerContent={ props => <AppDrawerContent {...props} /> }
@@ -81,5 +83,3 @@ const AppDrawer = () => {
    </Drawer>
   )
 }
-
-export default AppDrawer

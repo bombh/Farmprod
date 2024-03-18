@@ -13,7 +13,7 @@ const AppDrawer = () => {
    <Drawer
       drawerContent={ props => <AppDrawerContent {...props} /> }
       screenOptions={{
-         headerShown: true,
+         headerShown: false,
          drawerType: 'slide',
          headerTintColor: colors.black,
          headerTitleAlign: 'center',
@@ -34,9 +34,10 @@ const AppDrawer = () => {
          drawerInactiveTintColor: colors.neutral[400],
 
       }}
+      initialRouteName='works'
    >
       <Drawer.Screen
-         name="index"
+         name="works"
          options={{
             drawerLabel: 'Works',
             title: '',
@@ -47,7 +48,7 @@ const AppDrawer = () => {
       />
 
       <Drawer.Screen
-         name="artists/index"
+         name="artists"
          options={{
             drawerLabel: 'Artists',
             title: '',
@@ -57,7 +58,7 @@ const AppDrawer = () => {
          }}
       />
       <Drawer.Screen
-         name="tours/index"
+         name="tours"
          options={{
             drawerLabel: 'Tours',
             title: '',
@@ -67,7 +68,7 @@ const AppDrawer = () => {
          }}
       />
       <Drawer.Screen
-         name="about/index"
+         name="about"
          options={{
             drawerLabel: 'About',
             title: '',

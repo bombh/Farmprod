@@ -1,6 +1,5 @@
-import { ScrollView, View, FlatList, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
-import { useCallback } from "react";
 import { FlashList } from "@shopify/flash-list";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 

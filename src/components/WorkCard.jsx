@@ -1,6 +1,6 @@
-import { View, Text, Pressable, Image } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { useCallback } from 'react'
-//import { Image } from 'expo-image'
+import { Image } from 'expo-image'
 //import { memo } from 'react'
 
 const placeholder = require('@/src/assets/images/placeholder.png')
@@ -19,8 +19,9 @@ const WorkCard = ( props ) => {
             <Image
                source={{ uri: img }}
                className="w-full h-32"
-               defaultSource={placeholder}
-               resizeMode='cover'
+               placeholder={placeholder}
+               placeholderContentFit='cover'
+               transition={500}
             />
          </View>
          <View className="bg-black p-1">

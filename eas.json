@@ -11,23 +11,21 @@
        }
     },
     "dev-ios": {
-      "developmentClient": true,
-      "distribution": "internal",
-      "env": {
-         "EXPO_PUBLIC_API_KEY": "fd7713115a89c0789d3753d616"
-       },
-       "ios": {
+      "extends": "development",
+      "ios": {
          "simulator": true
-       }
-    },
-    "preview": {
+      }
+   },
+   "preview": {
       "distribution": "internal",
       "env": {
+         "EXPO_PUBLIC_API_URL": "https://www.farmprod.be/ghost/api/content/",
          "EXPO_PUBLIC_API_KEY": "fd7713115a89c0789d3753d616"
-       }
-    },
-    "production": {
+      }
+   },
+   "production": {
       "env": {
+         "EXPO_PUBLIC_API_URL": "https://www.farmprod.be/ghost/api/content/",
          "EXPO_PUBLIC_API_KEY": "fd7713115a89c0789d3753d616"
        }
     }

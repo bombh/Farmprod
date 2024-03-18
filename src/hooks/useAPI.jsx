@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-//import { API_KEY } from "@env";
 
+
+//const baseUrl = process.env.EXPO_API_BASE_URL
 const baseUrl = 'https://www.farmprod.be/ghost/api/content/'
 const key = process.env.EXPO_PUBLIC_API_KEY
 

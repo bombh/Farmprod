@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
-import { ScrollView, View, FlatList, ActivityIndicator } from "react-native";
+import { View, ActivityIndicator } from "react-native";
 import { useNavigation, useRouter } from "expo-router";
+import { FlashList } from "@shopify/flash-list";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI";
@@ -14,10 +15,6 @@ export default function Screen() {
 
    const { data, isLoading, error } = useAPI('GET', 'authors', 'limit=100');
 
-   const renderItem = useCallback(({item}) => (
-      <ArtistCard {...item} />
-    ), []);
-
    return (
       <View className="flex-1 px-3 bg-white">
 
@@ -27,11 +24,12 @@ export default function Screen() {
                   <ActivityIndicator className="pt-16" size="large" color="#000000" />
                </>
             ) : (
-               <FlatList
+               <FlashList
                   data={data.authors}
-                  renderItem={renderItem}
+                  renderItem={ ({item}) => <ArtistCard {...item} /> }
                   keyExtractor={ item => item.id }
-                  initialNumToRender={5}
+                  estimatedItemSize={225}
+                  //initialNumToRender={5}
                   ListHeaderComponent={ <ScreenTitle title="Artists" />}
                   scrollEventThrottle={16}
                />

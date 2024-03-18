@@ -32,7 +32,8 @@
     "react-native-web": "~0.19.6",
     "typescript": "^5.3.0",
     "@shopify/flash-list": "1.6.3",
-    "expo-dev-client": "~3.3.10"
+    "expo-dev-client": "~3.3.10",
+    "react-native-maps": "1.10.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

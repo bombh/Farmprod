@@ -1,10 +1,4 @@
-import AppDrawer from '@/src/components/app/AppDrawer';
-
-// For web exports
-//import { NativeWindStyleSheet } from "nativewind";
-// NativeWindStyleSheet.setOutput({
-//    default: "native",
-// });
+import AppDrawer from '@/src/layouts/AppDrawer';
 
 const Layout = () => {
    return (

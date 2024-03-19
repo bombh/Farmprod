@@ -1,7 +1,7 @@
 import { Drawer } from 'expo-router/drawer';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import colors from 'tailwindcss/colors';
-import AppDrawerContent from '@/src/components/app/AppDrawerContent';
+import AppDrawerContent from '@/src/layouts/AppDrawerContent';
 import { styled } from 'nativewind';
 import { Image } from 'react-native';
 

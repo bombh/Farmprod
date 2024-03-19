@@ -1,11 +1,11 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import { View } from 'react-native'
+import MapView from 'react-native-maps';
 
 export default function Screen() {
   return (
-    <View>
-      <Text>Tour Screen</Text>
+    <View className="flex-1">
+      <MapView className="w-full h-full" />
     </View>
-  )
+  );
 }
 

@@ -6,7 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 const logo = require('@/src/assets/images/logo_128.png');
 
-export default function HeaderDrawer() {
+export default function HeaderBack() {
 
    const navigation = useNavigation()
 
@@ -21,7 +21,6 @@ export default function HeaderDrawer() {
             ),
             headerLeft: () => (
                <MaterialIcons name="arrow-back-ios-new" onPress={() => {navigation.goBack()}} size={24} color={colors.black} className="m-0" />
-
             ),
          }
       } />

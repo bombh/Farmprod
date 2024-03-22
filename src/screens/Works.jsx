@@ -1,5 +1,5 @@
 import { View, ActivityIndicator } from "react-native";
-import { useNavigation, useRouter } from "expo-router";
+// import { useNavigation, useRouter } from "expo-router";
 import { FlashList } from "@shopify/flash-list";
 //import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -12,7 +12,6 @@ import HeaderDrawer from "../layouts/HeaderDrawer";
 
 
 export default function Screen() {
-   const router = useRouter();
    
    const { data, isLoading, error } = useAPI('GET', 'posts', 'limit=100&include=tags');
 

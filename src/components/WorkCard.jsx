@@ -1,20 +1,28 @@
 import { View, Text, Pressable } from 'react-native'
 import { useCallback } from 'react'
 import { Image } from 'expo-image'
+import { useNavigation, useRouter } from 'expo-router'
 //import { memo } from 'react'
 
 const placeholder = require('@/src/assets/images/placeholder.png')
 
 const WorkCard = ( props ) => {
+   const router = useRouter()
    
    const { title, excerpt, feature_image, tags } = props
-   //console.log('Rendering Card', title)
-
+   
    const img = feature_image.replace("/images/", "/images/size/w300/")   
    const tagText = tags.slice(1).map( tag => tag.name ).join(' • ')
 
+   const showDetail = () => {
+      router.navigate({
+         pathname: `works/detail`,
+         params: { ...props }
+      })
+   }
+
    return (
-      <Pressable className="mb-7 active:opacity-70">
+      <Pressable className="mb-7 active:opacity-70" onPress={showDetail}>
          <View className="flex-row">
             <Image
                source={{ uri: img }}

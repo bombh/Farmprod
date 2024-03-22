@@ -20,10 +20,6 @@ export default function AppDrawer() {
          headerTintColor: colors.black,
          headerTitleAlign: 'center',
          headerShadowVisible: false,
-         headerRight: () => (
-            <Image source={logo} className="w-7 h-7 mt-1 mr-4"  />
-          ),
-
          drawerStyle : {
             width: 220,
             backgroundColor: colors.neutral[900],

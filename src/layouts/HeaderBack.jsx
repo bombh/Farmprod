@@ -20,7 +20,8 @@ export default function HeaderDrawer() {
                <Image source={logo} className="w-7 h-7" />
             ),
             headerLeft: () => (
-               <MaterialIcons name="menu" onPress={() => {navigation.openDrawer()}} size={24} color={colors.black} className="m-0" />
+               <MaterialIcons name="arrow-back-ios-new" onPress={() => {navigation.goBack()}} size={24} color={colors.black} className="m-0" />
+
             ),
          }
       } />

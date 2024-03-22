@@ -4,6 +4,7 @@ import { Image } from 'expo-image'
 
 import ScreenTitle from "@/src/components/app/ScreenTitle";
 import { Drawer } from 'expo-router/drawer';
+import HeaderDrawer from '../layouts/HeaderDrawer';
 
 export default function Screen() {
    const router = useRouter();
@@ -17,11 +18,8 @@ export default function Screen() {
 
    return (
       <>
-         <Drawer.Screen
-            options={{
-               headerShown: true,
-            }}
-         />
+         <HeaderDrawer />
+         
          <View className="flex-1 bg-white">
 
             <ScreenTitle title="Tours" />

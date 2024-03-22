@@ -5,6 +5,7 @@ import { Image } from 'expo-image'
 
 import useAPI from "@/src/hooks/useAPI";
 import ScreenTitle from "@/src/components/app/ScreenTitle";
+import HeaderDrawer from '../layouts/HeaderDrawer';
 
 const placeholder = require('@/src/assets/images/placeholder.png')
 
@@ -29,32 +30,36 @@ export default function Screen() {
     }
 
    return (
-      <ScrollView className="flex-1 bg-white">
-         <ScreenTitle title="About" />
+      <>
+         <HeaderDrawer />
          
-         { isLoading ? (
-               <ActivityIndicator className="pt-16" size="large" color="#000000" />
-            ) : (
-               data.pages && 
-               <>
-                  <Image
-                     source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/bandeFP-1.jpg' }}
-                     className="w-full h-36"
-                     placeholder={placeholder}
-                     placeholderContentFit='cover'
-                     transition={500}
-                  />
-
-                  <View className="p-3 pb-6">
-                     <RenderHtml
-                        contentWidth={width}
-                        source={{html: data.pages[0].html}}
-                        tagsStyles={mixedStyle} 
+         <ScrollView className="flex-1 bg-white">
+            <ScreenTitle title="About" />
+            
+            { isLoading ? (
+                  <ActivityIndicator className="pt-16" size="large" color="#000000" />
+               ) : (
+                  data.pages && 
+                  <>
+                     <Image
+                        source={{ uri: 'https://www.farmprod.be/content/images/size/w600/2021/07/bandeFP-1.jpg' }}
+                        className="w-full h-36"
+                        placeholder={placeholder}
+                        placeholderContentFit='cover'
+                        transition={500}
                      />
-                  </View>
-               </>
-            )
-         }
-      </ScrollView>
+
+                     <View className="p-3 pb-6">
+                        <RenderHtml
+                           contentWidth={width}
+                           source={{html: data.pages[0].html}}
+                           tagsStyles={mixedStyle} 
+                        />
+                     </View>
+                  </>
+               )
+            }
+         </ScrollView>
+      </>
    )
 }

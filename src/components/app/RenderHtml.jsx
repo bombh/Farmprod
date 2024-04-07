@@ -70,7 +70,10 @@ export default function RenderHtml({ html }) {
                case "<h2":
                   content = item.replace(/<h2.+?>/, "").replace(/<\/h2>/, "")
                   return (
-                     <View className="bg-black px-5 py-3 mt-5" key={index}>
+                     <View
+                        className="bg-black px-5 py-3 mt-5 rounded"
+                        key={index}
+                     >
                         <Text className="text-lg text-white">{content}</Text>
                      </View>
                   )
@@ -79,7 +82,7 @@ export default function RenderHtml({ html }) {
                   return (
                      <View className="w-full">
                         <Image
-                           className="w-full aspect-square mb-2"
+                           className="w-full aspect-square mb-3 rounded"
                            source={{ uri: item.substring(10, item.length - 2) }}
                            placeholder={placeholder}
                            placeholderContentFit="cover"

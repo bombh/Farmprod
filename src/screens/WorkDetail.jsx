@@ -35,7 +35,7 @@ const Screen = () => {
                   placeholderContentFit="cover"
                   transition={500}
                />
-               <View className="absolute bg-black/80 top-28 left-5 right-5">
+               <View className="absolute bg-black/80 top-28 left-5 right-5 rounded">
                   <Text
                      numberOfLines={1}
                      className="text-xl text-white font-medium text-center px-3 py-5"
@@ -64,7 +64,7 @@ const Screen = () => {
             ) : (
                <>
                   <RenderHtml html={data.posts[0].html} />
-                  <View className="h-10" />
+                  <View className="h-16" />
                </>
             )}
          </ScrollView>

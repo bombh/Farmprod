@@ -1,8 +1,16 @@
-import { ScrollView, View, Text } from "react-native"
+import {
+   ScrollView,
+   View,
+   Text,
+   ActivityIndicator,
+   useWindowDimensions,
+} from "react-native"
 import { Image } from "expo-image"
-import RenderHtml from "react-native-render-html"
-import HeaderBack from "../layouts/HeaderBack"
 import { useLocalSearchParams } from "expo-router"
+
+import useAPI from "@/src/hooks/useAPI"
+import HeaderBack from "@/src/layouts/HeaderBack"
+import RenderHtml from "@/src/components/app/RenderHtml"
 
 const placeholder = require("@/src/assets/images/placeholder.png")
 
@@ -10,6 +18,10 @@ const Screen = () => {
    // Get route params
    const params = useLocalSearchParams()
    const { id, title, excerpt, imgHeader, tagText } = params
+
+   // Get content
+   const { data, isLoading, error } = useAPI("GET", `posts/${id}`)
+   const { width } = useWindowDimensions()
 
    return (
       <>
@@ -37,12 +49,24 @@ const Screen = () => {
                   </Text>
                </View>
             </View>
-            <View className="pl-5 pr-8 py-3">
+            <View className="p-7">
                <Text className="text-lg text-center text-neutral-500 leading-6">
                   {excerpt}
                </Text>
             </View>
-            {/* <RenderHtml /> */}
+
+            {isLoading ? (
+               <ActivityIndicator
+                  className="pt-16"
+                  size="large"
+                  color="#000000"
+               />
+            ) : (
+               <>
+                  <RenderHtml html={data.posts[0].html} />
+                  <View className="h-10" />
+               </>
+            )}
          </ScrollView>
       </>
    )

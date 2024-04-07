@@ -1,23 +1,35 @@
-import { View, Text, Pressable } from 'react-native'
-import { useCallback } from 'react'
-import { Image } from 'expo-image'
-import { useNavigation, useRouter } from 'expo-router'
-//import { memo } from 'react'
+import { Image } from "expo-image"
+import { useRouter } from "expo-router"
+import { Pressable, Text, View } from "react-native"
 
-const placeholder = require('@/src/assets/images/placeholder.png')
+const placeholder = require("@/src/assets/images/placeholder.png")
 
-const WorkCard = ( props ) => {
+const suppressParenthesis = (string) => {
+   return string.replace("(", "").replace(")", "")
+}
+
+const WorkCard = ({ id, title, excerpt, feature_image, tags }) => {
    const router = useRouter()
-   
-   const { title, excerpt, feature_image, tags } = props
-   
-   const img = feature_image.replace("/images/", "/images/size/w300/")   
-   const tagText = tags.slice(1).map( tag => tag.name ).join(' • ')
+
+   const img = feature_image.replace("/images/", "/images/size/w300/")
+   const imgHeader = feature_image.replace("/images/", "/images/size/w600/")
+
+   // Bug in expo if parentheses are used in a string
+   const tagText = tags
+      .slice(2)
+      .map((tag) => suppressParenthesis(tag.name))
+      .join(" • ")
 
    const showDetail = () => {
-      router.navigate({
+      router.push({
          pathname: `works/detail`,
-         params: { ...props }
+         params: {
+            id,
+            title: suppressParenthesis(title),
+            excerpt: suppressParenthesis(excerpt),
+            imgHeader,
+            tagText,
+         },
       })
    }
 
@@ -28,26 +40,31 @@ const WorkCard = ( props ) => {
                source={{ uri: img }}
                className="w-full h-32"
                placeholder={placeholder}
-               placeholderContentFit='cover'
+               placeholderContentFit="cover"
                transition={500}
             />
          </View>
-         <View className="bg-black p-1">
-            <Text numberOfLines={1} className="text-white font-semibold text-lg text-center">
+         <View className="bg-black p-2 h-11">
+            <Text
+               numberOfLines={1}
+               className="text-white font-semibold text-lg text-center"
+            >
                {title}
             </Text>
          </View>
-         <View>
-            <Text numberOfLines={1} className="text-neutral-400 text-lg leading-5 text-center py-2">
+         <View className="p-2 h-10">
+            <Text
+               numberOfLines={1}
+               className="text-neutral-400 text-base text-center"
+            >
                {excerpt}
             </Text>
          </View>
          <View className="border border-neutral-300 border-x-0 border-y-1">
-            <Text numberOfLines={1} className="text-xs uppercase text-center py-2">
+            <Text numberOfLines={1} className="text-xs text-center p-1">
                {tagText}
             </Text>
          </View>
-         
       </Pressable>
    )
 }

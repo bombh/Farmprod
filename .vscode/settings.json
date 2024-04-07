@@ -1,7 +1,19 @@
 {
-    "codemetrics.basics.CodeLensEnabled": false,
-    "codemetrics.basics.DecorationModeEnabled": false,
-    "codemetrics.basics.EnabledForJS": false,
-    "codemetrics.basics.EnabledForHTML": false,
-    "editor.colorDecorators": false
+   "editor.colorDecorators": false,
+   "editor.defaultFormatter": "esbenp.prettier-vscode",
+   "editor.formatOnSave": true,
+   "editor.tabSize": 3,
+   "editor.detectIndentation": false,
+   "editor.renderWhitespace": "trailing",
+   "editor.linkedEditing": true,
+   "editor.suggest.insertMode": "replace",
+   "editor.acceptSuggestionOnCommitCharacter": false,
+   "files.defaultLanguage": "jsx",
+   "explorer.autoReveal": false,
+   "explorer.confirmDragAndDrop": false,
+   "workbench.tree.indent": 20,
+   "workbench.tree.renderIndentGuides": "always",
+   "workbench.editor.enablePreview": false,
+   "prettier.tabWidth": 3,
+   "prettier.semi": false
 }

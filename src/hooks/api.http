@@ -1,0 +1,8 @@
+# Farmprod API
+
+### Get all posts
+GET https://www.farmprod.be/ghost/api/content/posts/?key=fd7713115a89c0789d3753d616&limit=100&include=tags
+
+### Get all artist
+GET https://www.farmprod.be/ghost/api/content/authors/?key=fd7713115a89c0789d3753d616&limit=10
+

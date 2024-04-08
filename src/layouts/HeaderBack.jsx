@@ -28,11 +28,7 @@ export default function HeaderBack() {
                      navigation.goBack()
                   }}
                >
-                  <MaterialIcons
-                     name="arrow-back-ios-new"
-                     size={22}
-                     color={colors.black}
-                  />
+                  <MaterialIcons name="arrow-back-ios-new" size={22} color={colors.black} />
                </Pressable>
             ),
          }}

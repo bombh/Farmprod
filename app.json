@@ -1,46 +1,50 @@
 {
-  "expo": {
-    "name": "Farmprod",
-    "slug": "farmprod",
-    "scheme": "farmprod",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./src/assets/images/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./src/assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.farmprod.app"
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./src/assets/images/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
+   "expo": {
+      "name": "Farmprod",
+      "slug": "farmprod",
+      "scheme": "farmprod",
+      "version": "1.0.0",
+      "orientation": "portrait",
+      "icon": "./src/assets/images/icon.png",
+      "userInterfaceStyle": "light",
+      "splash": {
+         "image": "./src/assets/images/splash.png",
+         "resizeMode": "contain",
+         "backgroundColor": "#ffffff"
       },
-      "package": "com.farmprod.app"
-    },
-    "web": {
-      "favicon": "./src/assets/images/favicon.png",
-      "bundler": "metro"
-    },
-    "plugins": [
-      "expo-router"
-    ],
-    "extra": {
-      "router": {
-        "origin": false
+      "assetBundlePatterns": ["**/*"],
+      "ios": {
+         "supportsTablet": true,
+         "bundleIdentifier": "com.farmprod.app",
+         "config": {
+            "googleMapsApiKey": "AIzaSyDJpwF3ajhQwPvu8nb-HAsZKrvWbjEqNrY"
+         }
       },
-      "eas": {
-        "projectId": "38db8f38-98ab-4fd7-ae03-527d72514389"
-      }
-    },
-    "owner": "bombh"
-  }
+      "android": {
+         "adaptiveIcon": {
+            "foregroundImage": "./src/assets/images/adaptive-icon.png",
+            "backgroundColor": "#ffffff"
+         },
+         "package": "com.farmprod.app",
+         "config": {
+            "googleMaps": {
+               "apiKey": "AIzaSyCk1WebaZXPmTNh2Qt2eh4jMs3PzWXLuU8"
+            }
+         }
+      },
+      "web": {
+         "favicon": "./src/assets/images/favicon.png",
+         "bundler": "metro"
+      },
+      "plugins": ["expo-router"],
+      "extra": {
+         "router": {
+            "origin": false
+         },
+         "eas": {
+            "projectId": "38db8f38-98ab-4fd7-ae03-527d72514389"
+         }
+      },
+      "owner": "bombh"
+   }
 }

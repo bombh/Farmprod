@@ -17,13 +17,13 @@ export default function HeaderBack() {
             headerTitle: "",
             headerShadowVisible: false,
             headerRight: () => (
-               <View className="flex items-center justify-center bg-white w-10 h-10 rounded-full">
+               <View className="flex items-center justify-center bg-white w-10 h-10 rounded-full opacity-60">
                   <Image source={logo} className="w-7 h-7 mt-1" />
                </View>
             ),
             headerLeft: () => (
                <Pressable
-                  className="flex items-center justify-center bg-black/40 w-10 h-10 rounded-full active:bg-black/20"
+                  className="flex items-center justify-center bg-white/60 w-10 h-10 rounded-full active:bg-white/80"
                   onPress={() => {
                      navigation.goBack()
                   }}
@@ -31,7 +31,7 @@ export default function HeaderBack() {
                   <MaterialIcons
                      name="arrow-back-ios-new"
                      size={22}
-                     color={colors.white}
+                     color={colors.black}
                   />
                </Pressable>
             ),

@@ -9,7 +9,7 @@ import HeaderDrawer from "@/src/layouts/HeaderDrawer"
 export default function Screen() {
    const router = useRouter()
 
-   showTour = (tour) => {
+   const showTour = (tour) => {
       router.navigate({
          pathname: `tours/detail`,
          params: { tour: tour },

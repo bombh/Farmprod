@@ -5,12 +5,13 @@ import {
    ActivityIndicator,
    useWindowDimensions,
 } from "react-native"
-import RenderHtml from "react-native-render-html"
+// import RenderHtml from "react-native-render-html"
 import { Image } from "expo-image"
 
 import useAPI from "@/src/hooks/useAPI"
 import ScreenTitle from "@/src/components/app/ScreenTitle"
-import HeaderDrawer from "../layouts/HeaderDrawer"
+import HeaderDrawer from "@/src/layouts/HeaderDrawer"
+import RenderHtml from "@/src/components/app/RenderHtml"
 
 const placeholder = require("@/src/assets/images/placeholder.png")
 
@@ -59,9 +60,8 @@ export default function Screen() {
 
                      <View className="p-3 pb-6">
                         <RenderHtml
-                           contentWidth={width}
-                           source={{ html: data.pages[0].html }}
-                           tagsStyles={mixedStyle}
+                           html={data.pages[0].html}
+                           email="farmprod@gmail.com"
                         />
                      </View>
                   </>

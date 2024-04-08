@@ -1,14 +1,26 @@
-import { View, Text } from "react-native"
+import { View, Text, Pressable, Linking } from "react-native"
 import React from "react"
 import { Image } from "expo-image"
+import { MaterialIcons } from "@expo/vector-icons"
+import colors from "tailwindcss/colors"
 
 const placeholder = require("@/src/assets/images/placeholder.png")
 
 // Delete HTML tags
 const deleteHtmlTag = (html, tag) => {
    return html
+      .replace(new RegExp(`<${tag}>`, "gmi"), "")
+      .replace(new RegExp(`</${tag}>`, "gmi"), "")
+}
+// Delete HTML tags
+const deleteHtmlTagAttributes = (html, tag) => {
+   return html
       .replace(new RegExp(`<${tag}.+?>`, "gmi"), "")
       .replace(new RegExp(`</${tag}>`, "gmi"), "")
+}
+
+const deleteHtmlTagFull = (html, tag) => {
+   return html.replace(new RegExp(`<${tag}.+?>.+?</${tag}>`, "gmi"), "")
 }
 
 // Delete HTML attributes
@@ -18,12 +30,16 @@ const deleteHtmlAttribute = (html, attr) => {
 
 // Clean HTML
 const cleanHtml = (html) => {
+   console.log("html", html)
    //html = html.replace(/<figure.+?>/gim, "").replace(/<\/figure>/gim, "")
-   html = deleteHtmlTag(html, "figure")
-   html = deleteHtmlTag(html, "figcaption")
-   html = deleteHtmlTag(html, "div")
-   html = deleteHtmlTag(html, "iframe")
-
+   html = deleteHtmlTagAttributes(html, "figure")
+   html = deleteHtmlTagAttributes(html, "figcaption")
+   html = deleteHtmlTagAttributes(html, "div")
+   html = deleteHtmlTagAttributes(html, "iframe")
+   html = deleteHtmlTagFull(html, "a")
+   html = deleteHtmlTag(html, "strong")
+   html = deleteHtmlTag(html, "br")
+   console.log("html2", html)
    html = html.replace(/ alt/gim, "")
 
    html = deleteHtmlAttribute(html, "class")
@@ -40,15 +56,17 @@ const cleanHtml = (html) => {
    html = html.replace(/<(\w+)>\s*<\/\1>/gim, "")
 
    // Transfer string to array
-   html = html.replace(/></gim, ">,<")
-   html = html.split(",")
+   html = html.replace(/></gim, ">~<")
+   html = html.split("~")
 
    return html
 }
 
-export default function RenderHtml({ html }) {
+export default function RenderHtml({ html, authors, email }) {
    const htmlArray = cleanHtml(html)
-   console.log("RenderHtml", htmlArray[0])
+
+   const artists = authors?.map((author) => author.name).join(" / ")
+
    let content = ""
 
    // htmlArray.map((item) => {
@@ -56,13 +74,17 @@ export default function RenderHtml({ html }) {
    // }
 
    return (
-      <View className="px-5">
+      <View className="px-0">
+         {/* HTML tags from array  */}
          {htmlArray.map((item, index) => {
             switch (item.substring(0, 3)) {
                case "<p>":
                   content = item.replace(/<p>/, "").replace(/<\/p>/, "")
                   return (
-                     <Text className="text-base px-5 py-2 mb-5" key={index}>
+                     <Text
+                        className="text-base text-center mx-5 px-5 py-2 mb-5"
+                        key={index}
+                     >
                         {content}
                      </Text>
                   )
@@ -70,7 +92,7 @@ export default function RenderHtml({ html }) {
                case "<h2":
                   content = item.replace(/<h2.+?>/, "").replace(/<\/h2>/, "")
                   return (
-                     <View className="bg-black px-5 py-3" key={index}>
+                     <View className="bg-black mx-5 mt-3 px-5 py-3" key={index}>
                         <Text className="text-lg text-white text-center">
                            {content}
                         </Text>
@@ -79,7 +101,7 @@ export default function RenderHtml({ html }) {
                   break
                case "<im":
                   return (
-                     <View className="w-full">
+                     <View className="w-full" key={index}>
                         <Image
                            className="w-full aspect-square mb-3"
                            source={{ uri: item.substring(10, item.length - 2) }}
@@ -94,6 +116,37 @@ export default function RenderHtml({ html }) {
                   return null
             }
          })}
+
+         {/* Authors if exists */}
+         {artists && (
+            <>
+               <View className="bg-black mx-5 px-5 py-3" key="authors">
+                  <Text className="text-lg text-white text-center">
+                     Artists
+                  </Text>
+               </View>
+               <Text
+                  className="text-base mx-5 px-5 py-2 mb-10 text-center"
+                  key="artists"
+               >
+                  {artists}
+               </Text>
+            </>
+         )}
+
+         {/* Email if exists */}
+         {email && (
+            <View className="flex items-center justify-center">
+               <Pressable
+                  className="flex bg-black w-14 h-14 rounded-full active:bg-red-500 items-center justify-center mb-10"
+                  onPress={() => {
+                     Linking.openURL(`mailto:${email}`)
+                  }}
+               >
+                  <MaterialIcons name="email" size={24} color={colors.white} />
+               </Pressable>
+            </View>
+         )}
       </View>
    )
 }

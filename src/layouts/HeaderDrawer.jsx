@@ -1,28 +1,41 @@
-import { Image } from 'react-native'
-import { Stack } from 'expo-router'
-import { useNavigation } from 'expo-router';
-import colors from 'tailwindcss/colors';
-import { MaterialIcons } from '@expo/vector-icons';
+import { Image, Pressable, View } from "react-native"
+import { Stack } from "expo-router"
+import { useNavigation } from "expo-router"
+import colors from "tailwindcss/colors"
+import { MaterialIcons } from "@expo/vector-icons"
 
-const logo = require('@/src/assets/images/logo_128.png');
+const logo = require("@/src/assets/images/logo_128.png")
 
 export default function HeaderDrawer() {
-
    const navigation = useNavigation()
 
    return (
-      <Stack.Screen options={
-         {
+      <Stack.Screen
+         options={{
             headerShown: true,
-            headerTitle: '',
+            headerTitle: "",
             headerShadowVisible: false,
             headerRight: () => (
-               <Image source={logo} className="w-7 h-7" />
+               <View className="flex items-center justify-center w-10 h-10 rounded-full">
+                  <Image source={logo} className="w-7 h-7 mt-1" />
+               </View>
             ),
             headerLeft: () => (
-               <MaterialIcons name="menu" onPress={() => {navigation.openDrawer()}} size={24} color={colors.black} className="m-0" />
+               <Pressable
+                  className="flex items-center justify-center active:bg-black/20 w-10 h-10 rounded-full"
+                  onPress={() => {
+                     navigation.openDrawer()
+                  }}
+               >
+                  <MaterialIcons
+                     name="menu"
+                     size={24}
+                     color={colors.black}
+                     className="m-0"
+                  />
+               </Pressable>
             ),
-         }
-      } />
-  )
+         }}
+      />
+   )
 }

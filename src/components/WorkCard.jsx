@@ -12,7 +12,7 @@ const WorkCard = ({ id, title, excerpt, feature_image, tags }) => {
    const router = useRouter()
 
    const img = feature_image.replace("/images/", "/images/size/w300/")
-   const imgHeader = feature_image.replace("/images/", "/images/size/w600/")
+   const imgHeader = feature_image.replace("/images/", "/images/size/w1000/")
 
    // Bug in expo if parentheses are used in a string
    const tagText = tags
@@ -21,7 +21,7 @@ const WorkCard = ({ id, title, excerpt, feature_image, tags }) => {
       .join(" • ")
 
    const showDetail = () => {
-      router.push({
+      router.navigate({
          pathname: `works/detail`,
          params: {
             id,

@@ -20,34 +20,40 @@ const Screen = () => {
    const { id, title, excerpt, imgHeader, tagText } = params
 
    // Get content
-   const { data, isLoading, error } = useAPI("GET", `posts/${id}`)
+   const { data, isLoading, error } = useAPI(
+      "GET",
+      `posts/${id}`,
+      "include=authors"
+   )
    const { width } = useWindowDimensions()
+
+   //console.log("data", data?.posts[0].authors)
 
    return (
       <>
          <HeaderBack />
          <ScrollView className="relative w-full bg-white">
-            <View className="relative">
+            <View className="">
                <Image
                   source={{ uri: imgHeader }}
-                  className="w-full h-80"
+                  className="w-full h-96"
                   placeholder={placeholder}
                   placeholderContentFit="cover"
                   transition={500}
                />
-               <View className="absolute bg-black/80 top-28 left-5 right-5 rounded">
-                  <Text
-                     numberOfLines={1}
-                     className="text-xl text-white font-medium text-center px-3 py-5"
-                  >
-                     {title}
-                  </Text>
-               </View>
-               <View className="absolute bg-white/70 bottom-0 left-0 right-0 px-5 py-1">
-                  <Text className="text-xs font-semibold text-center text-black uppercase">
-                     {tagText}
-                  </Text>
-               </View>
+            </View>
+            <View className="bg-black w-full">
+               <Text
+                  numberOfLines={1}
+                  className="text-2xl text-white font-medium text-center px-3 py-5"
+               >
+                  {title}
+               </Text>
+            </View>
+            <View className="px-5 pt-1">
+               <Text className="text-xs font-semibold text-center text-black">
+                  {tagText}
+               </Text>
             </View>
             <View className="px-3 py-7">
                <Text className="text-lg text-center text-neutral-500 leading-6">
@@ -63,8 +69,11 @@ const Screen = () => {
                />
             ) : (
                <>
-                  <RenderHtml html={data.posts[0].html} />
-                  <View className="h-16" />
+                  <RenderHtml
+                     html={data?.posts[0].html}
+                     authors={data?.posts[0].authors}
+                  />
+                  {/* <View className="h-16" /> */}
                </>
             )}
          </ScrollView>

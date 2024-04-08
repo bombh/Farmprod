@@ -17,7 +17,7 @@ const useAPI = (method, endpoint, query) => {
       },
    }
 
-   console.log(`Render useApi ${options.url} ... loading`, isLoading)
+   //console.log(`Render useApi ${options.url} ... loading`, isLoading)
 
    const fetchData = async () => {
       setIsLoading(true)

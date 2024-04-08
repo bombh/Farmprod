@@ -1,24 +1,13 @@
 import { View, ActivityIndicator } from "react-native"
 import { useState } from "react"
-// import { useNavigation, useRouter } from "expo-router";
 import { FlashList } from "@shopify/flash-list"
-//import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import useAPI from "@/src/hooks/useAPI"
 import ScreenTitle from "@/src/components/app/ScreenTitle"
 import WorkCard from "@/src/components/WorkCard"
-import HeaderDrawer from "../layouts/HeaderDrawer"
+import HeaderDrawer from "@/src/layouts/HeaderDrawer"
 
 export default function Screen() {
-   // const [detail, setDetail] = useState({
-   //    id: 0,
-   //    title: '',
-   //    excerpt: '',
-   //    feature_image: '',
-   //    tags: [],
-   //    content:'',
-   // });
-
    const { data, isLoading, error } = useAPI(
       "GET",
       "posts",
@@ -28,7 +17,7 @@ export default function Screen() {
    return (
       <>
          <HeaderDrawer />
-         <View className="flex-1 px-3 bg-white">
+         <View className="flex-1 px-5 bg-white">
             {isLoading ? (
                <>
                   <ScreenTitle title="Works" />

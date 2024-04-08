@@ -7,7 +7,7 @@ import { FlashList } from "@shopify/flash-list"
 import useAPI from "@/src/hooks/useAPI"
 import ScreenTitle from "@/src/components/app/ScreenTitle"
 import ArtistCard from "@/src/components/ArtistCard"
-import HeaderDrawer from "../layouts/HeaderDrawer"
+import HeaderDrawer from "@/src/layouts/HeaderDrawer"
 
 export default function Screen() {
    const router = useRouter()

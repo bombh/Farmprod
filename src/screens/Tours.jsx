@@ -4,7 +4,7 @@ import { Image } from "expo-image"
 
 import ScreenTitle from "@/src/components/app/ScreenTitle"
 import { Drawer } from "expo-router/drawer"
-import HeaderDrawer from "../layouts/HeaderDrawer"
+import HeaderDrawer from "@/src/layouts/HeaderDrawer"
 
 export default function Screen() {
    const router = useRouter()

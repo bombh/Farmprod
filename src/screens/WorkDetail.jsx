@@ -27,8 +27,6 @@ const Screen = () => {
    )
    const { width } = useWindowDimensions()
 
-   //console.log("data", data?.posts[0].authors)
-
    return (
       <>
          <HeaderBack />

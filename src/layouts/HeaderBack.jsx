@@ -1,4 +1,4 @@
-import { Image, View } from "react-native"
+import { Image, Pressable, View } from "react-native"
 import { Stack } from "expo-router"
 import { useNavigation } from "expo-router"
 import colors from "tailwindcss/colors"
@@ -22,16 +22,18 @@ export default function HeaderBack() {
                </View>
             ),
             headerLeft: () => (
-               <View className="flex items-center justify-center bg-black/40 w-10 h-10 rounded-full">
+               <Pressable
+                  className="flex items-center justify-center bg-black/40 w-10 h-10 rounded-full active:bg-black/20"
+                  onPress={() => {
+                     navigation.goBack()
+                  }}
+               >
                   <MaterialIcons
                      name="arrow-back-ios-new"
-                     onPress={() => {
-                        navigation.goBack()
-                     }}
                      size={22}
                      color={colors.white}
                   />
-               </View>
+               </Pressable>
             ),
          }}
       />

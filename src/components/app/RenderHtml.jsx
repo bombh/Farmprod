@@ -30,8 +30,6 @@ const deleteHtmlAttribute = (html, attr) => {
 
 // Clean HTML
 const cleanHtml = (html) => {
-   console.log("html", html)
-   //html = html.replace(/<figure.+?>/gim, "").replace(/<\/figure>/gim, "")
    html = deleteHtmlTagAttributes(html, "figure")
    html = deleteHtmlTagAttributes(html, "figcaption")
    html = deleteHtmlTagAttributes(html, "div")
@@ -39,7 +37,6 @@ const cleanHtml = (html) => {
    html = deleteHtmlTagFull(html, "a")
    html = deleteHtmlTag(html, "strong")
    html = deleteHtmlTag(html, "br")
-   console.log("html2", html)
    html = html.replace(/ alt/gim, "")
 
    html = deleteHtmlAttribute(html, "class")
@@ -64,14 +61,9 @@ const cleanHtml = (html) => {
 
 export default function RenderHtml({ html, authors, email }) {
    const htmlArray = cleanHtml(html)
-
    const artists = authors?.map((author) => author.name).join(" / ")
 
    let content = ""
-
-   // htmlArray.map((item) => {
-   //    console.log("RenderHtml", item)
-   // }
 
    return (
       <View className="px-0">

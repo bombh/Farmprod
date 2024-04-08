@@ -62,7 +62,7 @@ export default function RenderHtml({ html }) {
                case "<p>":
                   content = item.replace(/<p>/, "").replace(/<\/p>/, "")
                   return (
-                     <Text className="text-base px-5 py-2" key={index}>
+                     <Text className="text-base px-5 py-2 mb-5" key={index}>
                         {content}
                      </Text>
                   )
@@ -70,11 +70,10 @@ export default function RenderHtml({ html }) {
                case "<h2":
                   content = item.replace(/<h2.+?>/, "").replace(/<\/h2>/, "")
                   return (
-                     <View
-                        className="bg-black px-5 py-3 mt-5 rounded"
-                        key={index}
-                     >
-                        <Text className="text-lg text-white">{content}</Text>
+                     <View className="bg-black px-5 py-3" key={index}>
+                        <Text className="text-lg text-white text-center">
+                           {content}
+                        </Text>
                      </View>
                   )
                   break
@@ -82,7 +81,7 @@ export default function RenderHtml({ html }) {
                   return (
                      <View className="w-full">
                         <Image
-                           className="w-full aspect-square mb-3 rounded"
+                           className="w-full aspect-square mb-3"
                            source={{ uri: item.substring(10, item.length - 2) }}
                            placeholder={placeholder}
                            placeholderContentFit="cover"

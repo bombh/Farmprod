@@ -49,7 +49,7 @@ const Screen = () => {
                   </Text>
                </View>
             </View>
-            <View className="p-7">
+            <View className="px-3 py-7">
                <Text className="text-lg text-center text-neutral-500 leading-6">
                   {excerpt}
                </Text>

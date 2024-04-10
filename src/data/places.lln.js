@@ -10,8 +10,8 @@ Kind of static DB
 
 const param = {
    mapCenter: {
-      lat: 50.66903579753384,
-      lng: 4.610405778922945,
+      lat: 50.66915149532407,
+      lng: 4.614661509260129,
    },
    mapZoom: 16,
 }
@@ -22,7 +22,7 @@ const points = [
     **************************** */
 
    {
-      name: "Blue(BE-MX) Resto(BE) Les+Crayons(BE) Johnny+Boy(BE) Tones(CH) Delicious+Brain(SW)",
+      name: "Blue(BE-MX) Resto(BE) Les Crayons(BE) Johnny Boy(BE) Tones(CH) Delicious Brain(SW)",
       place: "Gare de Louvain-La-Neuve (Quai 1)",
       address: "",
       geo: {
@@ -61,7 +61,7 @@ const points = [
    },
 
    {
-      name: "Farm+Prod(Collectif)<br>Alexis+Corrand(FR) Arno+Debal(BE) Fred+Lebbel(BE) Johan+Baggio(FR) Guillaume+Desmarets(BE) Nelson+Dos+Reis(BE) Piotr+Szlatcha(BE)",
+      name: "FARMPROD(Collectif) Alexis Corrand(FR) Arno Debal(BE) Fred Lebbel(BE) Johan Baggio(FR) Guillaume Desmarets(BE) Nelson Dos Reis(BE) Piotr Szlatcha(BE)",
       place: "Anneau central",
       comment: "Légalement ce spot n' est pas accessible à pied ;-)",
       address: "",
@@ -92,7 +92,7 @@ const points = [
    },
 
    {
-      name: "Denis+Meyers(BE) Corn+79(IT) Zorkmade(IT) ",
+      name: "Denis Meyers(BE) Corn 79(IT) Zorkmade(IT) ",
       place: "Ruelle St-Eloi",
       address: "",
       geo: {
@@ -135,7 +135,7 @@ const points = [
     **************************** */
 
    {
-      name: "Popay(FR) Kool+Koor(US) Mart+Aire(AR) Pelucas(MX) Bandi(CH) Eyes+B(BE)",
+      name: "Popay(FR) Kool Koor(US) Mart Aire(AR) Pelucas(MX) Bandi(CH) Eyes B(BE)",
       place: "Gare de Louvain-la-Neuve (étage et escalier)",
       address: "",
       geo: {
@@ -148,7 +148,7 @@ const points = [
    },
 
    {
-      name: "Mart+Aires(AR) Zesär+Bahamonte(ES)",
+      name: "Mart Aires(AR) Zesär Bahamonte(ES)",
       place: "Place des Sciences (Point Culture)",
       address: "",
       geo: {
@@ -187,7 +187,7 @@ const points = [
    },
 
    {
-      name: "Ren’Art+Collectif(FR) Mr+Cana Pi Samy Lady+Alezia",
+      name: "Ren’Art Collectif(FR) Mr Cana Pi Samy Lady Alezia",
       place: "Gare des bus",
       address: "",
       geo: {
@@ -200,7 +200,7 @@ const points = [
    },
 
    {
-      name: "Farm+Prod Collectif(BE) Anyway/Collectif(FR) Grems Taroe Opera The+Weird+Collectif Rookie(DE) Frau+Isa(AU) Cone(DE)",
+      name: "FARMPROD Collectif(BE) Anyway/Collectif(FR) Grems Taroe Opera The Weird Collectif Rookie(DE) Frau Isa(AU) Cone(DE)",
       place: "Parking Sablon (Mur Bleu)",
       address: "",
       geo: {
@@ -213,7 +213,7 @@ const points = [
    },
 
    {
-      name: "Milu+Corech(AR) Mariela+Ajras(AR) Dourone(ES)",
+      name: "Milu Corech(AR) Mariela Ajras(AR) Dourone(ES)",
       place: "Place Raymond Lemaire",
       address: "",
       geo: {
@@ -225,7 +225,7 @@ const points = [
       num: 7,
    },
    {
-      name: "Tyrsa(FR) Ilk(FR) Delicious+Brain(SW) 2+Shy(FR)",
+      name: "Tyrsa(FR) Ilk(FR) Delicious Brain(SW) 2 Shy(FR)",
       place: "Anneau Central Sud (Sous-sol)",
       address: "",
       geo: {
@@ -238,7 +238,7 @@ const points = [
    },
 
    {
-      name: "Dogs(BE) Thia(FR) Solid(BE) Cimer(BE) Babs(FR) 2shy(FR) Cee+Pil(BE) Fredone+Fone(BR) Bandi(CH) Arno+2bal(BE) Amty(FR) Amen(FR) Lady+Shove(FR)",
+      name: "Dogs(BE) Thia(FR) Solid(BE) Cimer(BE) Babs(FR) 2shy(FR) Cee Pil(BE) Fredone Fone(BR) Bandi(CH) Arno 2bal(BE) Amty(FR) Amen(FR) Lady Shove(FR)",
       place: "Boulevard de Wallonie (Sud)",
       address: "",
       geo: {
@@ -251,7 +251,7 @@ const points = [
    },
 
    {
-      name: "Remed(ES) 3TT+man(ES)",
+      name: "Remed(ES) 3TT man(ES)",
       place: "Chaussée de Wavre",
       address: "",
       geo: {
@@ -380,7 +380,7 @@ const points = [
     **************************** */
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (1/8)",
       address: "",
       geo: {
@@ -392,7 +392,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (2/8)",
       address: "",
       geo: {
@@ -404,7 +404,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (3/8)",
       address: "",
       geo: {
@@ -416,7 +416,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (4/8)",
       address: "",
       geo: {
@@ -428,7 +428,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (5/8)",
       address: "",
       geo: {
@@ -440,7 +440,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (6/8)",
       address: "",
       geo: {
@@ -452,7 +452,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (7/8)",
       address: "",
       geo: {
@@ -464,7 +464,7 @@ const points = [
    },
 
    {
-      name: "Isaac+Cordal(ES)",
+      name: "Isaac Cordal(ES)",
       place: "Parcours Statues (8/8)",
       address: "",
       geo: {

@@ -30,7 +30,7 @@ export default function Screen() {
                   <Pressable
                      className="w-4/5 bg-neutral-900 p-2 active:bg-neutral-700 rounded-md"
                      onPress={() => {
-                        showTour("LLN")
+                        showTour("lln")
                      }}
                   >
                      <Text className="text-lg text-white text-center">
@@ -43,7 +43,7 @@ export default function Screen() {
                   <Pressable
                      className="w-4/5 bg-neutral-900 p-2 active:bg-neutral-700 rounded-md"
                      onPress={() => {
-                        showTour("OTT")
+                        showTour("ottignies")
                      }}
                   >
                      <Text className="text-lg text-white text-center">

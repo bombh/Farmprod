@@ -1,19 +1,30 @@
 import { Image, Text, View } from "react-native"
+import { useLocalSearchParams } from "expo-router"
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps"
 import HeaderBack from "@/src/layouts/HeaderBack"
 import { useRef } from "react"
-import { param, points } from "@/src/data/places.lln"
-
 const mapStyle = require("@/src/data/mapStyle.json")
 
 export default function Screen() {
-   //const mapRef = useRef()
+   // Get route params
+   const params = useLocalSearchParams()
+   const { tour } = params
+   let data
 
+   // Get data
+   const req = require.context("../data", false, /\.js$/)
+   req.keys().forEach((filename) => {
+      if (filename.includes(tour)) {
+         data = req(filename)
+      }
+   })
+
+   console.log("data", data)
    const INITIAL_REGION = {
-      latitude: param.mapCenter.lat,
-      longitude: param.mapCenter.lng,
-      latitudeDelta: 0.012,
-      longitudeDelta: 0.012,
+      latitude: data.param.mapCenter.lat,
+      longitude: data.param.mapCenter.lng,
+      latitudeDelta: data.param.delta,
+      longitudeDelta: data.param.delta,
    }
 
    // point {"address": "", "geo": {"lat": 50.6691055959188, "lng": 4.614127749656513}, "group": "statue", "image": "statue.jpg", "name": "Isaac+Cordal(ES)", "place": "Parcours Statues (5/8)"}
@@ -30,7 +41,7 @@ export default function Screen() {
                showsUserLocation
                showsMyLocationButton
             >
-               {points.map((point, index) => (
+               {data.points.map((point, index) => (
                   <Marker
                      key={`point${index}`}
                      coordinate={{

@@ -13,7 +13,7 @@ const param = {
       lat: 50.66915149532407,
       lng: 4.614661509260129,
    },
-   mapZoom: 16,
+   delta: 0.012,
 }
 
 const points = [

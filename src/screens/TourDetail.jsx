@@ -7,15 +7,20 @@ import BottomSheet, {
    BottomSheetView,
    BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet"
-import { useCallback, useMemo, useRef } from "react"
+import { useCallback, useMemo, useRef, useState } from "react"
 
 const mapStyle = require("@/src/data/mapStyle.json")
 const placeholder = require("@/src/assets/images/placeholder.png")
 
 export default function Screen() {
+   // States
+   const [place, setPlace] = useState({ address: "", image: "", name: "" })
+
    // Get route params
    const params = useLocalSearchParams()
    const { tour } = params
+
+   // Tour data
    let data
 
    // Get data
@@ -51,8 +56,15 @@ export default function Screen() {
    )
 
    // Handle map's marker press
-   const handleMarkerPress = () => {
+   const handleMarkerPress = (point) => {
       // Open bottom sheet
+      console.log("point", point)
+      setPlace({
+         image: point.image,
+         name: point.name,
+         place: point.place,
+      })
+      console.log("place", point.image)
       bottomSheetRef.current?.snapToIndex(0)
    }
 
@@ -71,7 +83,7 @@ export default function Screen() {
             >
                {data.points.map((point, index) => (
                   <Marker
-                     onPress={handleMarkerPress}
+                     onPress={() => handleMarkerPress(point)}
                      key={`point${index}`}
                      coordinate={{
                         latitude: point.geo.lat,
@@ -122,7 +134,7 @@ export default function Screen() {
          <BottomSheet
             snapPoints={snapPoints}
             ref={bottomSheetRef}
-            index={0}
+            index={-1}
             enablePanDownToClose={true}
             backdropComponent={renderBackdrop}
             backgroundStyle={{ backgroundColor: "#333" }}
@@ -132,7 +144,7 @@ export default function Screen() {
             <BottomSheetView className="bg-white">
                <Image
                   source={{
-                     uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/lln_fp_1.jpg`,
+                     uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${place.image}`,
                   }}
                   className="w-full h-full rounded-lg rounded-b-none"
                   placeholder={placeholder}

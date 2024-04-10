@@ -61,7 +61,7 @@ const points = [
    },
 
    {
-      name: "FARMPROD(Collectif) Alexis Corrand(FR) Arno Debal(BE) Fred Lebbel(BE) Johan Baggio(FR) Guillaume Desmarets(BE) Nelson Dos Reis(BE) Piotr Szlatcha(BE)",
+      name: "FARMPROD (Collectif) Alexis Corrand(FR) Arno Debal(BE) Fred Lebbel(BE) Johan Baggio(FR) Guillaume Desmarets(BE) Nelson Dos Reis(BE) Piotr Szlatcha(BE)",
       place: "Anneau central",
       comment: "Légalement ce spot n' est pas accessible à pied ;-)",
       address: "",

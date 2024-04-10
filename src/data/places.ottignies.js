@@ -2,12 +2,8 @@
 -----------------------------------
 Data for places
 -----------------------------------
-
 Array of all places
 Kind of static DB
-
-
-
 */
 
 const param = {
@@ -59,7 +55,7 @@ const points = [
    },
 
    {
-      name: "Farm+Prod(Collectif)<br>Alexis+Corrand(FR) Arno+Debal(BE) Fred+Lebbel(BE) Guillaume+Desmarets(BE) Nelson+Dos+Reis(BE)",
+      name: "FARMPROD(Collectif) Alexis Corrand(FR) Arno Debal(BE) Fred Lebbel(BE) Guillaume Desmarets(BE) Nelson Dos Reis(BE)",
       place: "Rue des Deux-Ponts (Maison de la Citoyenneté)",
       comment: "",
       address: "",

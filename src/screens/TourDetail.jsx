@@ -1,9 +1,12 @@
-import { Image, Text, View } from "react-native"
+import { Text, View } from "react-native"
+import { Image } from "expo-image"
 import { useLocalSearchParams } from "expo-router"
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps"
 import HeaderBack from "@/src/layouts/HeaderBack"
 import { useRef } from "react"
+
 const mapStyle = require("@/src/data/mapStyle.json")
+const placeholder = require("@/src/assets/images/placeholder.png")
 
 export default function Screen() {
    // Get route params
@@ -19,7 +22,7 @@ export default function Screen() {
       }
    })
 
-   console.log("data", data)
+   //console.log("data", data)
    const INITIAL_REGION = {
       latitude: data.param.mapCenter.lat,
       longitude: data.param.mapCenter.lng,
@@ -67,9 +70,12 @@ export default function Screen() {
                                  uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${point.image}`,
                               }}
                               className="w-44 h-28 rounded-lg rounded-b-none"
+                              placeholder={placeholder}
+                              placeholderContentFit="cover"
+                              transition={500}
                            />
                            <Text
-                              //numberOfLines={1}
+                              numberOfLines={4}
                               className="text-base text-white leading-5 text-center px-2 pt-2"
                            >
                               {point.name}

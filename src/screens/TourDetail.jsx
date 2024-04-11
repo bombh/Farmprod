@@ -129,8 +129,8 @@ export default function Screen() {
                      {place.place}
                   </Text>
                </View>
-               <View className="flex absolute top-3 items-center w-full">
-                  <View className="bg-white/50 w-12 h-2 rounded-lg"></View>
+               <View className="flex absolute top-2 items-center w-full">
+                  <View className="bg-white/50 w-12 h-1 rounded-lg"></View>
                </View>
             </BottomSheetView>
          </BottomSheet>

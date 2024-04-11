@@ -1,6 +1,7 @@
 import { View, Text, Pressable } from "react-native"
 import { useRouter } from "expo-router"
 import { Image } from "expo-image"
+import { MotiView, MotiText } from "moti"
 
 import ScreenTitle from "@/src/components/app/ScreenTitle"
 import { Drawer } from "expo-router/drawer"
@@ -16,6 +17,12 @@ export default function Screen() {
       })
    }
 
+   const animatedProps = {
+      from: { opacity: 0, translateY: 50 },
+      animate: { opacity: 1, translateY: 0 },
+      transition: { type: "timing", duration: 500 },
+   }
+
    return (
       <>
          <HeaderDrawer />
@@ -24,9 +31,19 @@ export default function Screen() {
             <ScreenTitle title="Tours" />
 
             <View className="pt-16 items-center">
-               <Text className="text-2xl text-center mb-5">Select a tour</Text>
+               <MotiText
+                  className="text-2xl text-center mb-5"
+                  delay={0}
+                  {...animatedProps}
+               >
+                  Select a tour
+               </MotiText>
 
-               <View className="flex-row justify-center mb-5">
+               <MotiView
+                  className="flex-row justify-center mb-5"
+                  delay={250}
+                  {...animatedProps}
+               >
                   <Pressable
                      className="w-4/5 bg-neutral-900 p-2 active:bg-neutral-700 rounded-md"
                      onPress={() => {
@@ -37,9 +54,13 @@ export default function Screen() {
                         Louvain-la-Neuve
                      </Text>
                   </Pressable>
-               </View>
+               </MotiView>
 
-               <View className="flex-row justify-center mb-5">
+               <MotiView
+                  className="flex-row justify-center mb-5"
+                  delay={500}
+                  {...animatedProps}
+               >
                   <Pressable
                      className="w-4/5 bg-neutral-900 p-2 active:bg-neutral-700 rounded-md"
                      onPress={() => {
@@ -50,9 +71,13 @@ export default function Screen() {
                         Ottignies
                      </Text>
                   </Pressable>
-               </View>
+               </MotiView>
 
-               <View className="flex-row justify-center mb-5">
+               <MotiView
+                  className="flex-row justify-center mb-5"
+                  delay={750}
+                  {...animatedProps}
+               >
                   <Pressable
                      className="w-4/5 bg-neutral-600 p-2 rounded-md"
                      onPress={() => {}}
@@ -61,7 +86,7 @@ export default function Screen() {
                         Bruxelles (soon)
                      </Text>
                   </Pressable>
-               </View>
+               </MotiView>
             </View>
          </View>
       </>

@@ -14,7 +14,7 @@ const placeholder = require("@/src/assets/images/placeholder.png")
 
 export default function Screen() {
    // States
-   const [place, setPlace] = useState({ address: "", image: "", name: "" })
+   const [place, setPlace] = useState({})
 
    // Get route params
    const params = useLocalSearchParams()
@@ -41,7 +41,7 @@ export default function Screen() {
 
    // Bottom sheet
    const bottomSheetRef = useRef(null)
-   const snapPoints = useMemo(() => ["75%"], [])
+   const snapPoints = useMemo(() => ["70%"], [])
 
    // Render backdrop for Bottom Sheet
    const renderBackdrop = useCallback(
@@ -59,12 +59,8 @@ export default function Screen() {
    const handleMarkerPress = (point) => {
       // Open bottom sheet
       console.log("point", point)
-      setPlace({
-         image: point.image,
-         name: point.name,
-         place: point.place,
-      })
-      console.log("place", point.image)
+      setPlace(point)
+      console.log("place", place.group)
       bottomSheetRef.current?.snapToIndex(0)
    }
 
@@ -100,33 +96,7 @@ export default function Screen() {
                                  ? "indigo"
                                  : "yellow"
                      }
-                  >
-                     {/* <Callout tooltip={true}>
-                        <View className="w-44 h-60 bg-black/80 p-0 rounded-lg">
-                           <Image
-                              source={{
-                                 uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${point.image}`,
-                              }}
-                              className="w-44 h-28 rounded-lg rounded-b-none"
-                              placeholder={placeholder}
-                              placeholderContentFit="cover"
-                              transition={500}
-                           />
-                           <Text
-                              numberOfLines={4}
-                              className="text-base text-white leading-5 text-center px-2 pt-2"
-                           >
-                              {point.name}
-                           </Text>
-                           <Text
-                              //numberOfLines={1}
-                              className="text-xs text-white text-center px-2 pt-1"
-                           >
-                              {point.place}
-                           </Text>
-                        </View>
-                     </Callout> */}
-                  </Marker>
+                  ></Marker>
                ))}
             </MapView>
          </View>
@@ -141,19 +111,27 @@ export default function Screen() {
             handleComponent={null}
             //handleIndicatorStyle={{ backgroundColor: "#666" }}
          >
-            <BottomSheetView className="bg-white">
+            <BottomSheetView className="relative bg-white rounded-xl rounded-b-none">
                <Image
                   source={{
                      uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${place.image}`,
                   }}
-                  className="w-full h-full rounded-lg rounded-b-none"
+                  className="w-full h-full rounded-xl rounded-b-none"
                   placeholder={placeholder}
                   placeholderContentFit="cover"
                   transition={500}
                />
-               {/* <View className="m-0 rounded-t-lg">
-                  <Text>Bottom Sheet</Text>
-               </View> */}
+               <View className="bg-black/60 absolute m-0 p-5 pb-12 w-full rounded-xl rounded-b-none bottom-0">
+                  <Text className="text-white text-center text-2xl">
+                     {place.name}
+                  </Text>
+                  <Text className="text-white text-center mt-2 text-lg">
+                     {place.place}
+                  </Text>
+               </View>
+               <View className="flex absolute top-3 items-center w-full">
+                  <View className="bg-white/50 w-12 h-2 rounded-lg"></View>
+               </View>
             </BottomSheetView>
          </BottomSheet>
       </>

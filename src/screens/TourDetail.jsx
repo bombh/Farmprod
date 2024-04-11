@@ -1,4 +1,4 @@
-import { Text, View } from "react-native"
+import { Linking, Platform, Pressable, Text, View } from "react-native"
 import { Image } from "expo-image"
 import { useLocalSearchParams } from "expo-router"
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from "react-native-maps"
@@ -7,6 +7,7 @@ import BottomSheet, {
    BottomSheetView,
    BottomSheetBackdrop,
 } from "@gorhom/bottom-sheet"
+import { FontAwesome6 } from "@expo/vector-icons"
 import { useCallback, useMemo, useRef, useState } from "react"
 
 const mapStyle = require("@/src/data/mapStyle.json")
@@ -58,10 +59,24 @@ export default function Screen() {
    // Handle map's marker press
    const handleMarkerPress = (point) => {
       // Open bottom sheet
-      console.log("point", point)
+      //console.log("point", point)
       setPlace(point)
-      console.log("place", place.group)
       bottomSheetRef.current?.snapToIndex(0)
+   }
+
+   const openURL = (point) => {
+      const scheme = Platform.select({
+         ios: "maps://0,0?q=",
+         android: "geo:0,0?q=",
+      })
+      const latLng = `${point.geo.lat},${point.geo.lng}`
+      const label = encodeURIComponent(point.place)
+      const url = Platform.select({
+         ios: `${scheme}${label}@${latLng}`,
+         android: `${scheme}${latLng}(${label})`,
+      })
+
+      Linking.openURL(url)
    }
 
    return (
@@ -71,7 +86,7 @@ export default function Screen() {
          <View className="flex-1">
             <MapView
                className="w-full h-full"
-               provider={PROVIDER_GOOGLE}
+               //provider={PROVIDER_GOOGLE}
                initialRegion={INITIAL_REGION}
                customMapStyle={mapStyle}
                showsUserLocation
@@ -132,6 +147,16 @@ export default function Screen() {
                <View className="flex absolute top-2 items-center w-full">
                   <View className="bg-white/50 w-12 h-1 rounded-lg"></View>
                </View>
+               <Pressable
+                  onPress={() => openURL(place)}
+                  className="absolute bg-white/60 active:bg-white/80 top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center"
+               >
+                  <FontAwesome6
+                     name="person-walking-arrow-right"
+                     size={24}
+                     color="black"
+                  />
+               </Pressable>
             </BottomSheetView>
          </BottomSheet>
       </>

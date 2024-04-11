@@ -58,7 +58,7 @@ export default function Screen() {
                         transition={500}
                      />
 
-                     <View className="p-3 pb-6">
+                     <View className="py-5">
                         <RenderHtml
                            html={data.pages[0].html}
                            email="farmprod@gmail.com"

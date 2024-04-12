@@ -11,9 +11,9 @@ Kind of static DB
 const param = {
    mapCenter: {
       lat: 50.66915149532407,
-      lng: 4.614661509260129,
+      lng: 4.616661509260129,
    },
-   delta: 0.012,
+   delta: 0.019,
 }
 
 const points = [

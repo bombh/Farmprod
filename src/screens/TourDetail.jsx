@@ -19,15 +19,16 @@ export default function Screen() {
 
    // Get route params
    const params = useLocalSearchParams()
-   const { tour } = params
+   const { id } = params
 
-   // Tour data
+   // Initialize tour's data
    let data
 
    // Get data
    const req = require.context("../data", false, /\.js$/)
    req.keys().forEach((filename) => {
-      if (filename.includes(tour)) {
+      if (filename.includes(id)) {
+         console.log("filename", filename)
          data = req(filename)
       }
    })
@@ -36,34 +37,32 @@ export default function Screen() {
    const INITIAL_REGION = {
       latitude: data.param.mapCenter.lat,
       longitude: data.param.mapCenter.lng,
-      latitudeDelta: data.param.delta,
-      longitudeDelta: data.param.delta,
+      latitudeDelta: data.param.delta * 1,
+      longitudeDelta: data.param.delta * 1,
    }
-
-   // Bottom sheet
-   const bottomSheetRef = useRef(null)
-   const snapPoints = useMemo(() => ["70%"], [])
-
-   // Render backdrop for Bottom Sheet
-   const renderBackdrop = useCallback(
-      (props) => (
-         <BottomSheetBackdrop
-            appearsOnIndex={0}
-            disappearsOnIndex={-1}
-            {...props}
-         />
-      ),
-      []
-   )
 
    // Handle map's marker press
    const handleMarkerPress = (point) => {
       // Open bottom sheet
       //console.log("point", point)
+      switch (point.group) {
+         case "fpolln":
+            point.logo = require("@/src/assets/images/logo_fresh.png")
+            break
+         case "kosmo15":
+            point.logo = require("@/src/assets/images/logo_kosmo.png")
+            break
+         case "kosmo12":
+            point.logo = require("@/src/assets/images/logo_kosmo.png")
+            break
+         default:
+            point.logo = null
+      }
       setPlace(point)
       bottomSheetRef.current?.snapToIndex(0)
    }
 
+   // Open Maps app
    const openURL = (point) => {
       const scheme = Platform.select({
          ios: "maps://0,0?q=",
@@ -79,6 +78,22 @@ export default function Screen() {
       Linking.openURL(url)
    }
 
+   // Bottom sheet
+   const bottomSheetRef = useRef(null)
+   const snapPoints = useMemo(() => ["75%"], [])
+
+   // Render backdrop for Bottom Sheet
+   const renderBackdrop = useCallback(
+      (props) => (
+         <BottomSheetBackdrop
+            appearsOnIndex={0}
+            disappearsOnIndex={-1}
+            {...props}
+         />
+      ),
+      []
+   )
+
    return (
       <>
          <HeaderBack />
@@ -86,7 +101,7 @@ export default function Screen() {
          <View className="flex-1">
             <MapView
                className="w-full h-full"
-               //provider={PROVIDER_GOOGLE}
+               provider={PROVIDER_GOOGLE}
                initialRegion={INITIAL_REGION}
                customMapStyle={mapStyle}
                showsUserLocation
@@ -124,9 +139,9 @@ export default function Screen() {
             backdropComponent={renderBackdrop}
             backgroundStyle={{ backgroundColor: "#333" }}
             handleComponent={null}
-            //handleIndicatorStyle={{ backgroundColor: "#666" }}
          >
             <BottomSheetView className="relative bg-white rounded-xl rounded-b-none">
+               {/* Image */}
                <Image
                   source={{
                      uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${place.image}`,
@@ -136,17 +151,36 @@ export default function Screen() {
                   placeholderContentFit="cover"
                   transition={500}
                />
+
+               {/* Text */}
                <View className="bg-black/60 absolute m-0 p-5 pb-12 w-full rounded-xl rounded-b-none bottom-0">
-                  <Text className="text-white text-center text-2xl">
+                  {place.logo && (
+                     <Image
+                        source={place.logo}
+                        className="w-28 h-28 mx-auto mb-4"
+                     />
+                  )}
+                  <Text className="text-white text-center text-xl">
                      {place.name}
                   </Text>
-                  <Text className="text-white text-center mt-2 text-lg">
+
+                  <Text className="text-white text-center mt-2 text-md">
                      {place.place}
                   </Text>
+
+                  {place.comment && (
+                     <Text className="text-white text-center text-lg">
+                        {place.comment}
+                     </Text>
+                  )}
                </View>
+
+               {/* Indicator line */}
                <View className="flex absolute top-2 items-center w-full">
-                  <View className="bg-white/50 w-12 h-1 rounded-lg"></View>
+                  <View className="bg-white/50 w-12 h-1 rounded-sm"></View>
                </View>
+
+               {/* Open Maps app */}
                <Pressable
                   onPress={() => openURL(place)}
                   className="absolute bg-white/60 active:bg-white/80 top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center"

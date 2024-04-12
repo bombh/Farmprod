@@ -44,7 +44,6 @@ export default function Screen() {
    // Handle map's marker press
    const handleMarkerPress = (point) => {
       // Open bottom sheet
-      //console.log("point", point)
       switch (point.group) {
          case "fpolln":
             point.logo = require("@/src/assets/images/logo_fresh.png")
@@ -58,6 +57,7 @@ export default function Screen() {
          default:
             point.logo = null
       }
+
       setPlace(point)
       bottomSheetRef.current?.snapToIndex(0)
    }
@@ -98,6 +98,7 @@ export default function Screen() {
       <>
          <HeaderBack />
 
+         {/* Map rendering */}
          <View className="flex-1">
             {/* TODO: Add animateCamera to map */}
             <MapView
@@ -144,6 +145,7 @@ export default function Screen() {
          >
             <BottomSheetView className="relative bg-white rounded-xl rounded-b-none">
                {/* Image */}
+               {/* TODO: if image does not exists, show placeholer */}
                <Image
                   source={{
                      uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${place.image}`,

@@ -34,17 +34,20 @@ const WorkCard = ({ id, title, excerpt, feature_image, tags }) => {
    }
 
    return (
-      <Pressable className="mb-7 active:opacity-70" onPress={showDetail}>
+      <Pressable
+         className="relative mb-7 active:opacity-70"
+         onPress={showDetail}
+      >
          <View className="flex-row">
             <Image
                source={{ uri: img }}
-               className="w-full h-32"
+               className="w-full h-44"
                placeholder={placeholder}
                placeholderContentFit="cover"
                transition={500}
             />
          </View>
-         <View className="bg-black p-2 h-11">
+         <View className="absolute bg-black/70 bottom-16 w-full p-2 h-11">
             <Text
                numberOfLines={1}
                className="text-white font-semibold text-lg text-center"
@@ -60,7 +63,7 @@ const WorkCard = ({ id, title, excerpt, feature_image, tags }) => {
                {excerpt}
             </Text>
          </View>
-         <View className="border border-neutral-300 border-x-0 border-y-1">
+         <View className="border h-6 border-neutral-300 border-x-0 border-y-1">
             <Text numberOfLines={1} className="text-xs text-center p-1">
                {tagText}
             </Text>

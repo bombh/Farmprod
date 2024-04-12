@@ -63,7 +63,7 @@ const points = [
          lat: 50.66865034075364,
          lng: 4.572387903492116,
       },
-      image: "",
+      image: "placeholder.png",
       group: "fpolln",
    },
 

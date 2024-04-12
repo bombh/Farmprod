@@ -106,8 +106,8 @@ export default function Screen() {
                provider={PROVIDER_GOOGLE}
                initialRegion={INITIAL_REGION}
                customMapStyle={mapStyle}
-               showsUserLocation
-               showsMyLocationButton
+               // showsUserLocation
+               // showsMyLocationButton
             >
                {data.points.map((point, index) => (
                   <Marker
@@ -145,7 +145,6 @@ export default function Screen() {
          >
             <BottomSheetView className="relative bg-white rounded-xl rounded-b-none">
                {/* Image */}
-               {/* TODO: if image does not exists, show placeholer */}
                <Image
                   source={{
                      uri: `https://map.farmprod.be/street-art-map-olln/public/img/art/${place.image}`,

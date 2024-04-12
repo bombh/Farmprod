@@ -28,7 +28,7 @@ export default function Screen() {
    const req = require.context("../data", false, /\.js$/)
    req.keys().forEach((filename) => {
       if (filename.includes(id)) {
-         console.log("filename", filename)
+         //console.log("filename", filename)
          data = req(filename)
       }
    })
@@ -99,6 +99,7 @@ export default function Screen() {
          <HeaderBack />
 
          <View className="flex-1">
+            {/* TODO: Add animateCamera to map */}
             <MapView
                className="w-full h-full"
                provider={PROVIDER_GOOGLE}
@@ -131,6 +132,7 @@ export default function Screen() {
             </MapView>
          </View>
 
+         {/* TODO: BottomSheet in his own component */}
          <BottomSheet
             snapPoints={snapPoints}
             ref={bottomSheetRef}

@@ -4,6 +4,8 @@ import { Pressable, Text, View } from "react-native"
 
 const placeholder = require("@/src/assets/images/placeholder.png")
 
+// TODO: group TourCard and WorkCard into a single component
+
 export default function TourCard({ id, title, img }) {
    const router = useRouter()
 

@@ -40,19 +40,18 @@ const Screen = () => {
                   transition={500}
                />
             </View>
-            <View className="bg-black w-full">
+            <View className="bg-black w-full px-3 py-5">
                <Text
                   numberOfLines={1}
-                  className="text-2xl text-white font-medium text-center px-3 py-5"
+                  className="text-2xl text-white font-medium text-center"
                >
                   {title}
                </Text>
-            </View>
-            <View className="px-5 pt-1">
-               <Text className="text-xs font-semibold text-center text-black">
+               <Text className="text-xs font-semibold text-center mt-2 text-white">
                   {tagText}
                </Text>
             </View>
+            <View className="px-5 pt-1"></View>
             <View className="px-3 py-5">
                <Text className="text-lg text-center text-neutral-500 leading-6">
                   {excerpt}

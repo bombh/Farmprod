@@ -34,11 +34,11 @@ export default function Screen() {
    })
 
    // Initial region
-   const INITIAL_REGION = {
+   const initialRegion = {
       latitude: data.param.mapCenter.lat,
       longitude: data.param.mapCenter.lng,
-      latitudeDelta: data.param.delta * 1,
-      longitudeDelta: data.param.delta * 1,
+      latitudeDelta: data.param.delta,
+      longitudeDelta: data.param.delta,
    }
 
    // Handle map's marker press
@@ -104,7 +104,7 @@ export default function Screen() {
             <MapView
                className="w-full h-full"
                provider={PROVIDER_GOOGLE}
-               initialRegion={INITIAL_REGION}
+               initialRegion={initialRegion}
                customMapStyle={mapStyle}
                // showsUserLocation
                // showsMyLocationButton
@@ -172,7 +172,7 @@ export default function Screen() {
                   </Text>
 
                   {place.comment && (
-                     <Text className="text-white text-center text-lg">
+                     <Text className="text-white text-center mt-2 text-xs">
                         {place.comment}
                      </Text>
                   )}

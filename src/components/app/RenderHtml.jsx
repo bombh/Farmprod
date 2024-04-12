@@ -71,6 +71,7 @@ export default function RenderHtml({ html, authors, email }) {
          {htmlArray.map((item, index) => {
             switch (item.substring(0, 3)) {
                case "<p>":
+                  // <p>
                   content = item.replace(/<p>/, "").replace(/<\/p>/, "")
                   return (
                      <Text
@@ -82,9 +83,10 @@ export default function RenderHtml({ html, authors, email }) {
                   )
                   break
                case "<h2":
+                  // <h2>
                   content = item.replace(/<h2.+?>/, "").replace(/<\/h2>/, "")
                   return (
-                     <View className="bg-black mx-5 mt-3 px-5 py-3" key={index}>
+                     <View className="bg-black mx-5 px-5 py-3" key={index}>
                         <Text className="text-lg text-white text-center">
                            {content}
                         </Text>
@@ -92,10 +94,11 @@ export default function RenderHtml({ html, authors, email }) {
                   )
                   break
                case "<im":
+                  // <image>
                   return (
                      <View className="w-full" key={index}>
                         <Image
-                           className="w-full aspect-square mb-5"
+                           className="w-full aspect-square mb-7"
                            source={{ uri: item.substring(10, item.length - 2) }}
                            placeholder={placeholder}
                            placeholderContentFit="cover"

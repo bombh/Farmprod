@@ -1,11 +1,35 @@
 import { Drawer } from "expo-router/drawer"
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
 import colors from "tailwindcss/colors"
-import AppDrawerContent from "@/src/layouts/AppDrawerContent"
 import { styled } from "nativewind"
-import { Image } from "react-native"
+import { View, Text, Image } from "react-native"
+import {
+   DrawerContentScrollView,
+   DrawerItemList,
+} from "@react-navigation/drawer"
 
-const logo = require("@/src/assets/images/logo_128.png")
+const logo = require("@/src/assets/images/logo_drawer.png")
+
+// Drawer content
+const AppDrawerContent = (props) => {
+   return (
+      <>
+         <DrawerContentScrollView {...props}>
+            <View className="flex-row items-center justify-center pt-5 pb-6 pr-1">
+               <Image source={logo} className="w-32 h-32" />
+            </View>
+
+            <DrawerItemList {...props} />
+         </DrawerContentScrollView>
+
+         <View className="pb-3">
+            <Text className="text-neutral-500 text-center text-xs">
+               Version 1.0.0
+            </Text>
+         </View>
+      </>
+   )
+}
 
 export default function AppDrawer() {
    const Icons = styled(FontAwesome6)

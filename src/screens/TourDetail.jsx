@@ -133,7 +133,6 @@ export default function Screen() {
             </MapView>
          </View>
 
-         {/* TODO: BottomSheet in his own component */}
          <BottomSheet
             snapPoints={snapPoints}
             ref={bottomSheetRef}

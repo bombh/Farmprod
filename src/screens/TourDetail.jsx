@@ -185,12 +185,12 @@ export default function Screen() {
                {/* Open Maps app */}
                <Pressable
                   onPress={() => openURL(place)}
-                  className="absolute bg-white/60 active:bg-white/80 top-5 right-5 w-12 h-12 rounded-full flex items-center justify-center"
+                  className="absolute bg-black/70 active:bg-black top-5 right-5 w-16 h-16 rounded-full flex items-center justify-center"
                >
                   <FontAwesome6
                      name="person-walking-arrow-right"
-                     size={24}
-                     color="black"
+                     size={28}
+                     color="white"
                   />
                </Pressable>
             </BottomSheetView>

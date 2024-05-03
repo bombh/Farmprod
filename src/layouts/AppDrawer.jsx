@@ -1,5 +1,5 @@
 import { Drawer } from "expo-router/drawer"
-import FontAwesome6 from "@expo/vector-icons/FontAwesome6"
+import { FontAwesome6 } from "@expo/vector-icons"
 import colors from "tailwindcss/colors"
 import { styled } from "nativewind"
 import { View, Text, Image } from "react-native"
@@ -94,10 +94,25 @@ export default function AppDrawer() {
                title: "",
                drawerIcon: ({ color }) => (
                   <Icons
-                     name="person-walking"
+                     name="person-walking-arrow-right"
                      size={24}
                      color={color}
-                     className="absolute right-5"
+                     className="absolute right-3"
+                  />
+               ),
+            }}
+         />
+         <Drawer.Screen
+            name="20years"
+            options={{
+               drawerLabel: "20 years",
+               title: "",
+               drawerIcon: ({ color }) => (
+                  <Icons
+                     name="cake-candles"
+                     size={24}
+                     color={color}
+                     className="absolute right-4"
                   />
                ),
             }}
